@@ -1,0 +1,67 @@
+.title-container {
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 10%;
+}
+
+.title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+  color: #EC7C95;
+  text-shadow: 2px 2px 0px #D0547A, 4px 4px 0px #C0425F;
+}
+
+.response-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 1rem;
+}
+
+button {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+p#answer {
+  font-size: 2rem;
+  margin-top: 2rem;
+  font-weight: bold;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background-image: url('images/computer-screen.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+
