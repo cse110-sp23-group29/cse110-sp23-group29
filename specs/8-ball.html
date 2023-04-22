@@ -2,16 +2,67 @@
 <html>
 <head>
 	<title>Magic 8-ball</title>
+	<style>
+		body {
+		  background-image: url('computer-screen.png');
+		  background-size: cover;
+		  font-family: Arial, sans-serif;
+		}
+		.output-box {
+			width: 1000px;
+			height: 300px;
+			background-color: #83b2c1;
+			
+			margin-left: 200px;
+			margin-bottom: 50px;
+			text-align: center;
+			border: 5px outset #780a0a;
+			border-radius: 50px;
+      	}
+		.input-box{
+			width: 1000px;
+			height: 150px;
+			background-color: #83b2c1;
+			margin-left: 200px;
+			text-align: center;
+			border: 5px outset #780a0a;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			
+		}
+
+		input[type="text"] {
+			background-color: #ffffff00;
+			
+			border: none;
+			
+      	}
+	</style>
+
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<div class="container">
+	<div class="header">
 		<h1>Magic 8-ball</h1>
-		<input type="text" id="question" placeholder="Ask a question...">
-		<button onclick="getAnswer()">Ask</button>
+		
+		
 		<p id="answer"></p>
 	</div>
 
+	<div class="output-box">
+		<button onclick="getAnswer()">Ask</button>
+	</div>
+
+	<div class="input-box">
+		<input type="text" id="question" placeholder="Ask a question...">
+	</div>
+
 	<script src="javascript.js"></script>
+
+	
+
+	
 </body>
 </html>
