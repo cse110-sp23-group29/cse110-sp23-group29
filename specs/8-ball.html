@@ -2,15 +2,46 @@
 <html>
 <head>
 	<title>Magic 8-ball</title>
+	
+	<style>
+		.title-containter{
+			position: sticky;
+			top: 0px;
+		}
+		.title {
+			font-size: 72px;
+  			font-weight: bold;
+  			text-align: center;
+  			color: pink;
+			outline: 5px black;
+  			text-shadow: 5px 5px #000;
+		}
+		body {
+		  background-image: url('computer-screen.png');
+		  background-size: contain;
+		  background-position: center;
+		  background-repeat: no-repeat;
+		  font-family: Arial, sans-serif;
+		}
+
+	
+	</style>
+
+
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<div class="container">
-		<h1>Magic 8-ball</h1>
-		<input type="text" id="question" placeholder="Ask a question...">
-		<button onclick="getAnswer()">Ask</button>
-		<p id="answer"></p>
+	<div class="title-container">
+		<h1 class="title">Magic 8-ball</h1>
 	</div>
+
+	<div class="container">
+		<p id="answer"></p>
+		<input type="text" id="question" placeholder="Ask a Yes/No question...">
+		<button onclick="getAnswer()">Ask the magic 8-ball</button>
+	</div>
+
+
 
 	<script src="javascript.js"></script>
 </body>
