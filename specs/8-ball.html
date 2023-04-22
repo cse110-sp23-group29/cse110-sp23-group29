@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="8-ball.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
 	<div class="title-container">
@@ -14,11 +14,11 @@
 
 	<div class="response-container">
 		<p id="answer"></p>
-		<input type="text" id="question" placeholder="Ask a Yes/No question...">
-		<button onclick="getAnswer()">Ask the magic 8-ball</button>
+		<div class="input-container">
+			<input type="text" id="question" placeholder="Ask your Yes/No question...">
+			<button onclick="getAnswer()">Ask Jester</button>
+		</div>
 	</div>
-
-
 
 	<script src="javascript.js"></script>
 </body>
