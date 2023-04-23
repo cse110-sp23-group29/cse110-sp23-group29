@@ -1,77 +1,87 @@
+/* Set the styles for the h1 element */
 h1 {
   font-size: 3rem;
   margin-bottom: 2rem;
-  font-family: 'VT323', monospace;
+  font-family: 'VT323', monospace; /* Use the VT323 monospace font */
 }
 
+/* Set the styles for the response container */
 .response-container {
-  margin-top: 5vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  margin-top: 5vh; /* Add space at the top of the container */
+  display: flex; /* Use flexbox to arrange the items */
+  flex-direction: column; /* Arrange the items vertically */
+  align-items: center; /* Center the items horizontally */
+  justify-content: flex-start; /* Align items to the top of the container */
 }
 
-
+/* Set the styles for the input container */
 .input-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 4rem;
+  display: flex; /* Use flexbox to arrange the items */
+  align-items: center; /* Center the items horizontally */
+  justify-content: center; /* Center the items vertically */
+  margin-top: 4rem; /* Add space at the top of the container */
 }
 
+/* Set the styles for the text input field */
 input[type="text"] {
-  width: 500px;
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
-  margin-right: 1rem;
-  font-family: 'VT323', monospace;
-  font-size: 1.5rem;
-  margin-left: 1rem;
+  width: 500px; /* Set the width of the input field */
+  padding: 10px; /* Add padding to the input field */
+  border-radius: 10px; /* Set the border radius of the input field */
+  border: none; /* Remove the border of the input field */
+  margin-right: 1rem; /* Add space to the right of the input field */
+  font-family: 'VT323', monospace; /* Use the VT323 monospace font */
+  font-size: 1.5rem; /* Set the font size of the input field */
+  margin-left: 1rem; /* Add space to the left of the input field */
 }
 
+/* Set the styles for the button */
 button {
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
-  background-color: #F9D8E0;
-  color: #fff;
-  cursor: pointer;
-  font-family: 'VT323', monospace;
-  font-size: 1.5rem;
+  padding: 10px; /* Add padding to the button */
+  border-radius: 10px; /* Set the border radius of the button */
+  border: none; /* Remove the border of the button */
+  background-color: #F9D8E0; /* Set the background color of the button */
+  color: #fff; /* Set the text color of the button */
+  cursor: pointer; /* Set the cursor to a pointer when hovering over the button */
+  font-family: 'VT323', monospace; /* Use the VT323 monospace font */
+  font-size: 1.5rem; /* Set the font size of the button */
 }
 
+/* Set the styles for the answer text */
 p#answer {
-  font-size: 4rem;
-  margin-top: 4rem;
-  font-weight: bold;
-  font-family: 'VT323', monospace;
+  font-size: 4rem; /* Set the font size of the answer text */
+  margin-top: 4rem; /* Add space at the top of the answer text */
+  font-weight: bold; /* Set the font weight of the answer text to bold */
+  font-family: 'VT323', monospace; /* Use the VT323 monospace font */
 }
 
+/* Set the styles for the HTML and body elements */
 html, body {
-  height: 100%;
-  margin: 0;
+  height: 100%; /* Set the height of the HTML and body elements to 100% */
+  margin: 0; /* Remove the margin of the HTML and body elements */
 }
 
+/* Set the styles for the title container */
 .title-container {
-  height: 30vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: sticky;
-  top: 10%;
+  height: 30vh; /* Set the height of the title container */
+  display: flex; /* Use flexbox to arrange the items */
+  align-items: center; /* Center the items horizontally */
+  justify-content: center; /* Center the items vertically */
+  position: sticky; /* Set the position of the title container to sticky */
+  top: 10%; /* Set the top position of the title container */
 }
 
+/* Sets the font, font size, font weight, text alignment, and color for the page title */
 .title {
   font-family: 'Press Start 2P', cursive;
   font-size: 48px;
   font-weight: bold;
   text-align: center;
   color: #EC7C95;
+  /* Adds a text shadow effect to the page title */
   text-shadow: 2px 2px 0px #D0547A, 4px 4px 0px #C0425F;
 }
 
+/* Sets the background image for the body and centers it */
 body {
   background-image: url('images/computer-screen.png');
   background-size: contain;
@@ -80,5 +90,7 @@ body {
   font-family: Arial, sans-serif;
   height: 100%;
   width: 100%;
+  /* Hides any content that exceeds the height of the body */
   overflow: hidden;
 }
+
