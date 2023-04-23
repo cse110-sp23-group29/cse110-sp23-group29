@@ -62,6 +62,51 @@ function getAnswer() {
       const answer = answers[randomIndex];
       // Display the answer on the page
       document.getElementById("answer").innerText = answer;
+
+      // Move the sprite up and down
+      moveSprite();
     }
   }
   
+function moveSprite() {
+  const sprite = document.querySelector(".sprite");
+  const isBounce = Math.random() < 1; // 100% chance to bounce
+  if (isBounce) {
+    sprite.style.animation = "bounce-sway 0.3s linear";
+  } else {
+    sprite.style.animation = "sway 0.3s linear";
+    animateSprite();
+  }
+  
+  
+  sprite.addEventListener("animationend", () => {
+    sprite.style.animation = "none";
+  });
+}
+
+let frameIndex = 0;
+let animationIntervalId = null;
+
+function animateSprite() {
+  const sprite = document.querySelector(".sprite");
+  let currentFrame = 0;
+
+  // Define the frames of the animation
+  const frames = [
+    "images/jester_0.png",
+    "images/jester_1.png",
+    "images/jester_2.png"
+  ];
+
+  // Set an interval to change the sprite's image every 100ms
+  const interval = setInterval(() => {
+    sprite.src = frames[currentFrame];
+    currentFrame++;
+
+    // If we've reached the end of the animation, reset the currentFrame to 0
+    if (currentFrame === frames.length) {
+      clearInterval(interval);
+      currentFrame = 0;
+    }
+  }, 100);
+}

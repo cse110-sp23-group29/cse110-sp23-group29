@@ -19,12 +19,81 @@ h1 {
   display: flex; /* Use flexbox to arrange the items */
   align-items: center; /* Center the items horizontally */
   justify-content: center; /* Center the items vertically */
-  margin-top: 4rem; /* Add space at the top of the container */
+  margin-top: 2rem; /* Add space at the top of the container */
+}
+
+/* Sets the jester sprite*/
+.sprite {
+  position: relative;
+  left: 0;
+  top: 50%;
+  height: 100px;
+  width: 100px;
+}
+
+@keyframes bounce-sway {
+  0% {
+    bottom: 0;
+    transform: rotate(0deg);
+  }
+  20% {
+    bottom: 10px;
+    transform: rotate(5deg);
+  }
+  40% {
+    bottom: 20px;
+    transform: rotate(0deg);
+  }
+  60% {
+    bottom: 20px;
+    transform: rotate(-5deg);
+  }
+  80% {
+    bottom: 10px;
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+    bottom: 0;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 20px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes sway {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(5deg);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  60% {
+    transform: rotate(-5deg);
+  }
+  80% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 /* Set the styles for the text input field */
 input[type="text"] {
-  width: 500px; /* Set the width of the input field */
+  width: 450px; /* Set the width of the input field */
   padding: 10px; /* Add padding to the input field */
   border-radius: 10px; /* Set the border radius of the input field */
   border: none; /* Remove the border of the input field */
@@ -32,6 +101,8 @@ input[type="text"] {
   font-family: 'VT323', monospace; /* Use the VT323 monospace font */
   font-size: 1.5rem; /* Set the font size of the input field */
   margin-left: 1rem; /* Add space to the left of the input field */
+  position: relative;
+  left: 50;
 }
 
 /* Set the styles for the button */
@@ -93,4 +164,3 @@ body {
   /* Hides any content that exceeds the height of the body */
   overflow: hidden;
 }
-
