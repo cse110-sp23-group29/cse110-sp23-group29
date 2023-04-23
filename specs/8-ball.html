@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Magic 8-ball</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Magic 8-Ball</title>
+	<link rel="stylesheet" type="text/css" href="8-ball.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
-	<div class="container">
-		<h1>Magic 8-ball</h1>
-		<input type="text" id="question" placeholder="Ask a question...">
-		<button onclick="getAnswer()">Ask</button>
+	<div class="title-container">
+		<h1 class="title">What Does Our <br> Jester Think?</h1>
+	</div>
+
+	<div class="response-container">
 		<p id="answer"></p>
+		<div class="input-container">
+			<input type="text" id="question" placeholder="Ask your Yes/No question...">
+			<button onclick="getAnswer()">Ask Jester</button>
+		</div>
 	</div>
 
 	<script src="javascript.js"></script>

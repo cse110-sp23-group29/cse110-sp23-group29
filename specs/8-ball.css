@@ -1,0 +1,84 @@
+h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  font-family: 'VT323', monospace;
+}
+
+.response-container {
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+input[type="text"] {
+  width: 500px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-right: 1rem;
+  font-family: 'VT323', monospace;
+  font-size: 1.5rem;
+  margin-left: 1rem;
+}
+
+button {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: #F9D8E0;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'VT323', monospace;
+  font-size: 1.5rem;
+}
+
+p#answer {
+  font-size: 4rem;
+  margin-top: 4rem;
+  font-weight: bold;
+  font-family: 'VT323', monospace;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.title-container {
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 10%;
+}
+
+.title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+  color: #EC7C95;
+  text-shadow: 2px 2px 0px #D0547A, 4px 4px 0px #C0425F;
+}
+
+body {
+  background-image: url('images/computer-screen.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
