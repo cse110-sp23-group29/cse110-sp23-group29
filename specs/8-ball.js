@@ -1,6 +1,10 @@
+// This function gets called when the "Ask Jester" button is clicked
 function getAnswer() {
+  // Get the user's question from the input element
     const question = document.getElementById("question").value;
+    // Check if the question is not empty
     if (question) {
+      // An array of possible answers
       const answers = [
           "Signs point to yes",
           "The universe says no",
@@ -52,8 +56,11 @@ function getAnswer() {
           "Follow your dreams",
           "Anything is possible"
       ];
+      // Generate a random index to select an answer from the array
       const randomIndex = Math.floor(Math.random() * answers.length);
+      // Get the answer from the array based on the random index
       const answer = answers[randomIndex];
+      // Display the answer on the page
       document.getElementById("answer").innerText = answer;
     }
   }
