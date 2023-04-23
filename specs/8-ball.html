@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!-- Sets the title of the webpage -->
 	<title>Magic 8-Ball</title>
+	<!-- Links to the CSS stylesheet for the webpage -->
 	<link rel="stylesheet" type="text/css" href="8-ball.css">
+	<!-- Preconnects to Google Fonts to improve performance -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<!-- Links to the fonts used on the webpage -->
 	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
+	<!-- Creates a container for the page title and centers it -->
 	<div class="title-container">
 		<h1 class="title">What Does Our <br> Jester Think?</h1>
 	</div>
 
+	<!-- Creates a container for the 8-ball response and centers it -->
 	<div class="response-container">
 		<p id="answer"></p>
+		<!-- Creates a container for the user input and the submit button -->
 		<div class="input-container">
+			<!-- Creates a text input for the user's question -->
 			<input type="text" id="question" placeholder="Ask your Yes/No question...">
+			<!-- Creates a button that, when clicked, triggers the getAnswer() function in the JavaScript file -->
 			<button onclick="getAnswer()">Ask Jester</button>
 		</div>
 	</div>
 
+	<!-- Links to the JavaScript file that contains the getAnswer() function -->
 	<script src="8-ball.js"></script>
 </body>
 </html>
