@@ -23,4 +23,4 @@
   - Lejing
 - TESTING/AUTOMATION
   - Noah
-  - Justin 
+  - Justin
