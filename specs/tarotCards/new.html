@@ -2,7 +2,42 @@
 <html>
 <head>
   <style>
-    /* CSS for the modal */
+    .card {
+      width: 200px;
+      height: 200px;
+      perspective: 1000px;
+      margin: 20px;
+      display: inline-block;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+
+    .card-front {
+      background-color: #f1f1f1;
+    }
+
+    .card-back {
+      background-color: #b3e6ff;
+      transform: rotateY(180deg);
+    }
+
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
     .modal {
       display: none;
       position: fixed;
@@ -12,50 +47,124 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.4);
     }
-    
+
     .modal-content {
-      background-color: #fff;
+      background-color: #fefefe;
       margin: 15% auto;
       padding: 20px;
       border: 1px solid #888;
-      width: 200px;
-      text-align: center;
+      width: 60%;
+      max-width: 800px;
     }
-    
-    /* CSS for the button */
-    .open-button {
-      padding: 10px 20px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
       cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <!-- Button to open the modal -->
-  <button class="open-button" onclick="openModal()">Open Modal</button>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <h1>Front</h1>
+      </div>
+      <div class="card-back">
+        <h1>Back</h1>
+      </div>
+    </div>
+  </div>
   
-  <!-- The modal -->
-  <div id="myModal" class="modal">
-    <div class="modal-content">
-      <p>This is a modal window.</p>
-      <button onclick="closeModal()">Close</button>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <h1>Front</h1>
+      </div>
+      <div class="card-back">
+        <h1>Back</h1>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <h1>Front</h1>
+      </div>
+      <div class="card-back">
+        <h1>Back</h1>
+      </div>
     </div>
   </div>
 
-  <script>
-    function openModal() {
-      var modal = document.getElementById('myModal');
-      modal.style.display = 'block';
-    }
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Modal 1 Content</h2>
+      <p>This is the overlay/modal screen for Card 1.</p>
+    </div>
+  </div>
 
-    function closeModal() {
-      var modal = document.getElementById('myModal');
-      modal.style.display = 'none';
-    }
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Modal 2 Content</h2>
+      <p>This is the overlay/modal screen for Card 2.</p>
+    </div>
+  </div>
+
+  <div id="modal3" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Modal 3 Content</h2>
+      <p>This is the overlay/modal screen for Card 3.</p>
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var cards = document.querySelectorAll(".card");
+      var modals = document.querySelectorAll(".modal");
+      var closeModalBtns = document.getElementsByClassName("close");
+
+      // Flip the card and show the modal
+      cards.forEach(function(card, index) {
+        card.addEventListener("click", function() {
+          card.classList.toggle("flipped");
+          modals[index].style.display = "block";
+        });
+      });
+
+      // Close the modal and flip the card back
+      for (var i = 0; i < closeModalBtns.length; i++) {
+        closeModalBtns[i].addEventListener("click", function() {
+          var modal = this.parentElement.parentElement;
+          modal.style.display = "none";
+          var index = Array.from(modals).indexOf(modal);
+          cards[index].classList.remove("flipped");
+        });
+      }
+
+      window.addEventListener("click", function(event) {
+        if (event.target.classList.contains("modal")) {
+          event.target.style.display = "none";
+          var index = Array.from(modals).indexOf(event.target);
+          cards[index].classList.remove("flipped");
+        }
+      });
+    });
   </script>
 </body>
 </html>
