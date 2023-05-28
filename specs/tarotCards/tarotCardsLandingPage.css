@@ -37,9 +37,10 @@ video[poster] {
 
 
 .card {
+    display: none;
     position: absolute;
-    width: 70px;
-    height: 100px;
+    width: 70px; /* Update the width as desired */
+    height: 100px; /* Update the height as desired */
     perspective: 1000px;
 }
 .card:nth-child(4) {

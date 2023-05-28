@@ -6,9 +6,15 @@ function handleVideoClick() {
     video.addEventListener('ended', function() {
         video.style.display = 'none';
         imageElement.src = '../specs/images/ComputerScreenDefault.png';
+        showCards();
     });
 }
-
+function showCards() {
+  var cards = document.querySelectorAll(".card");
+  cards.forEach(function(card) {
+    card.style.display = "block";
+  });
+}
 
 //Card and Flip card and show pop up screen(modal)
 document.addEventListener("DOMContentLoaded", function() {
