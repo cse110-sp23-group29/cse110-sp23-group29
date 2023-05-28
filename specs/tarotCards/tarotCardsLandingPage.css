@@ -10,10 +10,11 @@ video[poster] {
 }
   
 .computer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .image-container {
@@ -36,6 +37,11 @@ video[poster] {
 
 
 .card {
+    position: absolute;
+    width: 70px;
+    height: 100px;
+    perspective: 1000px;
+    /*
     width: 100px;
     height: 150px;
     perspective: 1000px;
@@ -44,7 +50,22 @@ video[poster] {
     top: 30%;
     right: 50%; */
 }
+.card:nth-child(4) {
+    top: 45%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+}
 
+.card:nth-child(2) {
+    top: 45%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+}
+.card:nth-child(3) {
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 .card-inner {
     position: relative;
     width: 100%;
@@ -91,8 +112,8 @@ video[poster] {
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 30%; /* Change the width as desired */
-    height: 350px; /* Change the height as desired */
+    width: 10%; /* Change the width as desired */
+    height: 330px; /* Change the height as desired */
     max-width: 600px;
 }
 
