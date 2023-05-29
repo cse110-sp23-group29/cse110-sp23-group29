@@ -4,7 +4,7 @@ body, html {
     padding: 0;
 }
 
-video[poster] {
+.image-container video[poster] {
     object-fit: cover
 }
   
@@ -15,6 +15,7 @@ video[poster] {
     height: 100vh;
 }
 
+/* container for image of computer */
 .image-container {
     display: inline-block;
     position: relative;
@@ -24,6 +25,8 @@ video[poster] {
     max-width: 100%;
 }
 
+/* Had to tweak the positiono of the video screen on top of the computer image
+   in order to place it on top of the computer's screen */
 #video-player {
     position: absolute;
     top: 43.3%;

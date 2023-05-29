@@ -18,8 +18,13 @@
 <body>
     <section class="computer">
         <div class="image-container">
+            <!-- Image of computer -->
             <img id="image" src="../specs/images/ComputerScreenDefault.png" alt="computer screen start">
-            <video id="video-player" src="../specs/videos/video2.mp4" poster="../specs/images/PressToStart.png" onclick="handleVideoClick()"></video> 
+            <!-- Video of TV turning on. The thumbnail is the "Press to Start" image, which prompts the user to click the screen to start. -->
+            <!-- The poster attribute is for the thumbnail, and is set to a transparent image, and the video's background is set to the
+                 "Press to Start" image. This is a hack that ensures that the thumbnail is the same size as the video, even if the thumbnail
+                and the video have different aspect ratios -->
+            <video id="video-player" src="../specs/videos/video2.mp4" poster="../specs/images/transparent.png" onclick="handleVideoClick()"></video> 
         </div>
     </section>
 </body>
