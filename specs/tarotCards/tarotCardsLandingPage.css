@@ -3,10 +3,6 @@ body, html {
     margin: 0;
     padding: 0;
 }
-
-video[poster] {
-    object-fit: cover
-}
   
 .computer {
     display: flex;
@@ -15,6 +11,7 @@ video[poster] {
     height: 100vh;
 }
 
+/* container for image of computer */
 .image-container {
     display: inline-block;
     position: relative;
@@ -24,12 +21,32 @@ video[poster] {
     max-width: 100%;
 }
 
+/* The poster image initially didn't fit the within the bounds of the video player since they
+   both have different aspect ratios, so this is a hack to overcome that problem.
+   Here is a link that explains it: http://www.iandevlin.com/blog/2013/03/html5/html5-video-and-background-images/ 
+*/
+.image-container video {
+    background:transparent url('../images/PressToStart.png') no-repeat 0 0;
+    background-size:cover;
+}
+
+/* Had to tweak the positiono of the video screen on top of the computer image
+   in order to place it on top of the computer's screen */
 #video-player {
     position: absolute;
-    top: 43.3%;
-    left: 49.7%;
-    transform: translate(-50%, -50%);
-    max-width: 59.6%;
-    max-height: 53.9%;
+    top: 43.65%;
+    left: 49.72%;
+    transform: translate(-50%, -50%) scale(1, 1.0125);
+    max-width: 45%;
+}
+
+/* When the screen gets small, the video will move out of the computer screen
+   This is to push it back into place */
+@media (max-width: 740px) {
+    #video-player {
+        top: 43.65%;
+        left: 49.8%;
+        transform: translate(-50.1%, -51%) scale(1, 1.0125);
+    }
 }
   
