@@ -1,4 +1,3 @@
-<!-- index -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,66 +18,14 @@
 <body>
     <section class="computer">
         <div class="image-container">
+            <!-- Image of computer -->
             <img id="image" src="../specs/images/ComputerScreenDefault.png" alt="computer screen start">
-            <video id="video-player" src="../specs/videos/video2.mp4" poster="../specs/images/PressToStart.png" onclick="handleVideoClick()"></video> 
-            <div id="modal1" class="modal">
-              <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Modal 1 Content</h2>
-                <p>This is the overlay/modal screen for Card 1.</p>
-              </div>
-          </div>
-
-          <div id="modal2" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Modal 2 Content</h2>
-                <p>This is the overlay/modal screen for Card 2.</p>
-            </div>
-        </div>
-
-          
-    <div id="modal3" class="modal">
-      <div class="modal-content">
-          <span class="close">&times;</span>
-          <h2>Modal 3 Content</h2>
-          <p>This is the overlay/modal screen for Card 3.</p>
-      </div>
-  </div>
+            <!-- Video of TV turning on. The thumbnail is the "Press to Start" image, which prompts the user to click the screen to start. -->
+            <!-- The poster attribute is for the thumbnail, and is set to a transparent image, and the video's background is set to the
+                 "Press to Start" image. This is a hack that ensures that the thumbnail is the same size as the video, even if the thumbnail
+                and the video have different aspect ratios -->
+            <video id="video-player" src="../specs/videos/video2.mp4" poster="../specs/images/transparent.png" onclick="handleVideoClick()"></video> 
         </div>
     </section>
-
-    <!-- The modal -->
-    <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <h1>Front</h1>
-          </div>
-          <div class="card-back">
-            <h1>Back</h1>
-          </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <h1>Front</h1>
-          </div>
-          <div class="card-back">
-            <h1>Back</h1>
-          </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-inner">
-          <div class="card-front">
-            <h1>Front</h1>
-          </div>
-          <div class="card-back">
-            <h1>Back</h1>
-          </div>
-        </div>
-    </div>
-
 </body>
 </html>
