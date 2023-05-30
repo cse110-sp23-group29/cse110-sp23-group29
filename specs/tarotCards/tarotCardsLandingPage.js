@@ -3,8 +3,6 @@ function handleVideoClick() {
   let imageElement = document.getElementById('image');
   video.play();
   video.addEventListener('ended', function() {
-      //video.style.display = 'none';
-      //imageElement.src = '../specs/images/ComputerScreenDefault.png';
       window.location.href = '../BlueScreen.html'
   });
 }
