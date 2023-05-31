@@ -1,3 +1,4 @@
+// BlueScreen.js
 document.addEventListener("DOMContentLoaded", function() {
     var cards = document.querySelectorAll(".card");
     var modals = document.querySelectorAll(".modal");
