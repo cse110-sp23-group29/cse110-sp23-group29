@@ -2,7 +2,7 @@
   "name": "cse110-sp23-group29",
   "version": "1.0.0",
   "description": "[Team Page](admin/team.md)",
-  "main": "cypress.config.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/cse110-sp23-group29/cse110-sp23-group29.github.io/issues"
   },
-  "homepage": "https://github.com/cse110-sp23-group29/cse110-sp23-group29.github.io#readme"
+  "homepage": "https://github.com/cse110-sp23-group29/cse110-sp23-group29.github.io#readme",
+  "devDependencies": {
+    "cypress": "^12.13.0"
+  }
 }
