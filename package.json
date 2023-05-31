@@ -1,0 +1,22 @@
+{
+  "name": "cse110-sp23-group29",
+  "version": "1.0.0",
+  "description": "[Team Page](admin/team.md)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cse110-sp23-group29/cse110-sp23-group29.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cse110-sp23-group29/cse110-sp23-group29.github.io/issues"
+  },
+  "homepage": "https://github.com/cse110-sp23-group29/cse110-sp23-group29.github.io#readme",
+  "devDependencies": {
+    "cypress": "^12.13.0"
+  }
+}
