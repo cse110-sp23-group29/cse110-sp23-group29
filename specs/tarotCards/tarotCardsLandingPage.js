@@ -3,6 +3,6 @@ function handleVideoClick() {
   let imageElement = document.getElementById('image');
   video.play();
   video.addEventListener('ended', function() {
-      window.location.href = '../BlueScreen.html'
+      window.location.href = '../StartScreen.html'
   });
 }
