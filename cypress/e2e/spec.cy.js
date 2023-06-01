@@ -24,6 +24,10 @@ describe('Push Spec', () => {
       .each(($card, index, $list) => {
         cy.wrap($card).click()
 
+        cy.get('#modal' + (index + 1))
+          .invoke('attr', 'style')
+          .should('not.contain', 'none')
+
         cy.get('.close')
           .then(($close) => {
             $close[index].click()
