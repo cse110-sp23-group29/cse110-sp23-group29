@@ -2,10 +2,30 @@ document.addEventListener("DOMContentLoaded", function() {
   var placeholders = document.querySelectorAll(".card-placeholder");
   var modals = document.querySelectorAll(".modal");
   var closeModalBtns = document.getElementsByClassName("close");
+  var submitBtn = document.querySelector(".submit-btn");
+  var buttonClicks = 0;
   var images = [
-    "../specs/images/jester_0.png",
-    "../specs/images/jester_3.png",
-    "../specs/images/new-computer.png"
+    "../specs/images/image1.png",
+    "../specs/images/image2.png",
+    "../specs/images/image3.png",
+    "../specs/images/image4.png",
+    "../specs/images/image5.png",
+    "../specs/images/image6.png",
+    "../specs/images/image7.png",
+    "../specs/images/image8.png",
+    "../specs/images/image9.png",
+    "../specs/images/image10.png",
+    "../specs/images/image11.png",
+    "../specs/images/image12.png",
+    "../specs/images/image13.png",
+    "../specs/images/image14.png",
+    "../specs/images/image15.png",
+    "../specs/images/image16.png",
+    "../specs/images/image17.png",
+    "../specs/images/image18.png",
+    "../specs/images/image19.png",
+    "../specs/images/image20.png",
+    "../specs/images/image22.png",
   ];
 
   // Shuffle the images array
@@ -43,44 +63,46 @@ document.addEventListener("DOMContentLoaded", function() {
     const card = document.getElementById(cardId);
     const responseElement = card.querySelector(".card-response");
     const randomResponse = generateRandomResponse(responses);
-    responseElement.textContent = randomResponse;
 
     const modal = document.getElementById(modalId);
     const modalResponseElement = modal.querySelector(".response");
     modalResponseElement.textContent = randomResponse;
   }
+    submitBtn.addEventListener("click", function() {
+        buttonClicks++; // Increment the button clicks counter
+    });
 
   // Add click event listener to each placeholder
   placeholders.forEach(function(placeholder, index) {
+
     placeholder.addEventListener("click", function() {
-      if (images.length > 0) {
-        var randomIndex = Math.floor(Math.random() * images.length);
-        var randomImage = images[randomIndex];
+        if (images.length > 0 && buttonClicks >= 1) {
+            var randomIndex = Math.floor(Math.random() * images.length);
+            var randomImage = images[randomIndex];
+            images.splice(randomIndex, 1);
 
-        images.splice(randomIndex, 1);
+            this.outerHTML = `
+                <div id="card${index + 1}" class="card">
+                    <div class="card-inner">
+                        <div class="card-front" style="background-image: url('../specs/images/image21.png'); background-size: cover; background-position: center; background-color: transparent;"></div>
+                        <div class="card-back" style="background-image: url('${randomImage}'); background-size: cover; background-position: center; background-color: transparent;">
+                            <div class="card-response"></div>
+                        </div>
+                    </div>
+                </div>
+            `;
 
-        this.outerHTML = `
-          <div id="card${index + 1}" class="card">
-            <div class="card-inner">
-              <div class="card-front" style="background-image: url('${randomImage}')">
-              </div>
-              <div class="card-back">
-                <div class="card-response"></div>
-              </div>
-            </div>
-          </div>
-        `;
+            assignRandomResponse(`card${index + 1}`, getResponsesForCard(index), `modal${index + 1}`);
 
-        assignRandomResponse(`card${index + 1}`, getResponsesForCard(index), `modal${index + 1}`);
-
-        var card = document.getElementById(`card${index + 1}`);
-        card.addEventListener("click", function() {
-          card.classList.toggle("flipped");
-          modals[index].style.display = "block";
-        });
-      }
+            var card = document.getElementById(`card${index + 1}`);
+            card.addEventListener("click", function() {
+                card.classList.toggle("flipped");
+                modals[index].style.display = "block";
+                submitBtn.style.display = "block";
+            });
+        }
     });
-  });
+});
 
   // Close the modal and flip the card back
   for (var i = 0; i < closeModalBtns.length; i++) {
@@ -103,7 +125,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   var inputField = document.querySelector(".input-field");
-  var submitBtn = document.querySelector(".submit-btn");
 
   submitBtn.addEventListener("click", function() {
     var sentence = inputField.value;
