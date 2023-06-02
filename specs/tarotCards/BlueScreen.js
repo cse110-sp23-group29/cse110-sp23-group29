@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var modals = document.querySelectorAll(".modal");
     var closeModalBtns = document.getElementsByClassName("close");
     var images = [
-      "../specs/images/jester_0.png",
+      "../specs/images/card1.png",
       "../specs/images/jester_3.png",
       "../specs/images/new-computer.png"
     ];
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
           this.outerHTML = `
             <div id="card${index + 1}" class="card">
               <div class="card-inner">
-                <div class="card-front" style="background-image: url('${randomImage}')">
+              <div class="card-front" style="background-image: url('${randomImage}'); background-size: cover;">
                 </div>
               </div>
             </div>
