@@ -1,4 +1,14 @@
+
 document.addEventListener("DOMContentLoaded", function() {
+  // Apply settings
+  let audio = document.getElementById("bg-music");
+  audio.volume = Number(localStorage.getItem("volume"));
+  
+  let paused = localStorage.getItem("paused");
+  
+  if (paused == "true") {
+    audio.pause();
+  }
     var cards = document.querySelectorAll(".card");
     var modals = document.querySelectorAll(".modal");
     var closeModalBtns = document.getElementsByClassName("close");
