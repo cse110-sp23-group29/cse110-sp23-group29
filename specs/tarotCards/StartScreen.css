@@ -5,9 +5,23 @@
 
 body {
     background-color: #b3e6ff;
-    margin: 0;
-    padding: 0;
     font-family: 'Press Start 2P', cursive;
+}
+
+#volume-slider {
+    height: 30px;
+    vertical-align: middle;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+
+    margin: 0 10%;
+
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .title {
@@ -15,31 +29,34 @@ body {
     font-weight: bold;
     text-align: center;
     color: #EC7C95;
+    line-height: 5rem;
+    margin: 2rem;
     /* Adds a text shadow effect to the page title */
     text-shadow: 2px 2px 0px #D0547A, 4px 4px 0px #C0425F;
-    margin-top: 150px;
-    margin-bottom: 150px;
 }
 
+.below {
+    position: relative;
+    z-index: -2;
+}
 .button {
-    padding: 2rem;
+    padding: 2.3rem;
     margin-bottom: 2rem;
     background-color: #EC7C95;
     cursor: pointer;
+    font-size: 1.2rem;
     font-family: 'Press Start 2P', cursive;
     color: white;
     display: block;
     border-radius: 10px;
     border: 0px;
-    box-shadow: 2px 2px 0px #D0547A, 4px 4px 0px #C0425F;
-
-    
+    box-shadow: 4px 4px 0px #D0547A, 8px 8px 0px #C0425F;
 }
 
 .button:active {
     box-shadow: none;
     background-color: #D0547A;
-    transform: translate(3px, 3px);
+    transform: translate(4px, 4px);
 }
 
 .buttons-container .button {
@@ -58,8 +75,8 @@ body {
 .settings-list {
     list-style: none;
     color: white;
-    margin-left: 10rem;
-    margin-right: 10rem;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .settings-list li {
@@ -93,13 +110,14 @@ body {
 }
 
 .popup-content {
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: relative;
     background-color: #EC7C95;
     padding: 20px;
     border-radius: 15px;
     text-align: center;
-    width: 50%;
+    width: 45%;
     margin: 15% auto;
 }
 
@@ -139,50 +157,76 @@ body {
     align-items: center;
 }
 
+.jesters-container {
+    display: inline-block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
 .image-container1 {
+    position: absolute;
+    top: 50%;
+    left: 20%; 
+    
+    z-index: -1;
     animation: bounce-sway 10s linear infinite;
     animation: moveImage 6s linear infinite;
-    /* position: relative; */
-    position: fixed;
-    top: 40%;
-    left: 10%; 
 }
 
 .image-container1 img {
-    width: 150px;
-    height: auto;
+    width: auto;
+    height: 150px;
     object-fit: cover;
     animation-name: slideshow;
-    animation-duration: 2s;
+    animation-duration: 10s;
     animation-iteration-count: infinite;
     animation-direction: alternate; 
-    margin-left: 0%;
 }
 
 .image-container2 {
+    position: relative;
+    height: 150px;
+    width: auto;
+    top: 50%;
+    left: -20%; 
+    float: right;
+    z-index: -1;
     animation: bounce-sway 5s linear infinite;
     animation: moveImage 9s linear infinite;
-    /* position: relative; */
-    position: fixed;
-    top: 40%;
-    right: 25%; 
 }
 
 .image-container2 img {
-    width: 200px;
-    height: auto;
+    width: auto;
+    height: 150px;
     object-fit: cover;
     animation-name: slideshow;
-    animation-duration: 3s;
+    animation-duration: 15s;
     animation-iteration-count: infinite;
     animation-direction: alternate; 
-    margin-left: 0%;
 }
 
   
 @keyframes slideshow {
-    0% { margin-left: 25%; }
-    100% { margin-left: 100%; }
+    0% { 
+        margin-left: 0%; 
+    }
+    25% { 
+        margin-left: 10%; 
+    }
+    50% { 
+        margin-left: 20%; 
+    }
+    75% { 
+        margin-left: 10%; 
+    }
+    100% {
+        margin-left: 0%;
+    }
 
 }
 
@@ -224,6 +268,69 @@ body {
     }
 }
 
-  
+@media screen and (max-width: 780px) {
+    .popup-content {
+        width: 20rem;
+        max-width: 100%;
+    }
+    .settings-list li input[type=checkbox], select {
+        float: none;
+    }
+    .settings-list li select {
+        width: 7rem;
+        margin-top: 10px;
+    }
+    .settings-list li {
+        display: block;
+        text-align: center;
+    }
+}
+
+@media screen and (max-device-width: 480px) {
+    .main-content {
+        margin: 0;
+    }
+    .title {
+        margin-left: 15rem;
+        margin-right: 15rem;
+        margin-bottom: 8rem;
+        font-size: 5.5rem;
+        line-height: 8rem;
+    }
+    .buttons-container .button {
+        margin-bottom: 5rem;
+        padding: 4rem;
+        font-size: 2rem;
+    }
+    .buttons-container {
+        margin: 2rem auto;
+        text-align: center;
+    }
+
+    .popup-content {
+        width: 50rem;
+    }
+    .settings-title {
+        font-size: 2.5rem;
+    }
+    .settings-list {
+        font-size: 1.8rem;
+    }
+    .settings-list li input[type=checkbox], select {
+        width: 40px;
+        height: 40px;
+    }
+
+    .image-container1, .image-container2 {
+        left: 0;
+    }
+
+    .image-container1, .image-container2 {
+        height: 200px;
+    }
+    .image-container1 img, .image-container2 img {
+        height: 200px;
+    }
+}
   
 

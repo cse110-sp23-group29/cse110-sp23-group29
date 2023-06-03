@@ -12,15 +12,19 @@
 	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1 class="title">JavaScript Jesters!</h1>
-
 	<audio loop id="bg-music">
 		<source src="./specs/audio/testMusic.mp3" type="audio/mp3">
 	</audio>
+	
+	<section class="main-content">
 
-	<section class="buttons-container">
-		<button class="button" id="start" type="button" onclick="handleStartClick()">Start!</button>
-		<button class="button" id="settings" type="button" onclick="openPopup()">Settings</button>
+		<h1 class="title">
+			<span class="below">Java</span>Script Je<span class="below">sters!</span></h1>
+			
+			<section class="buttons-container">
+				<button class="button" id="start" type="button" onclick="handleStartClick()">Start!</button>
+				<button class="button" id="settings" type="button" onclick="openPopup()">Settings</button>
+			</section>
 	</section>
 
 	<div id="popup" class="popup-container">
@@ -29,7 +33,7 @@
 			<ul class="settings-list">
 				<li>Music
 					<input class="checkmark" id="music-button" type="checkbox" title="Music" placeholder="Music?" onclick="playMusic(this)" checked>
-					<input id="volume-slider" type="range" min="0" max="100" value="30" onchange="this.value=value">
+					<input id="volume-slider" type="range" title="Volume" placeholder="Volume" min="0" max="100" value="30" onchange="this.value=value">
 				</li>
 				<li>Language
 					<select class="select-lang" id="lang" name="language">
@@ -46,19 +50,21 @@
 			<button class="close" onclick="closePopup()" type="button">&times;</button>
 		</div>
 	</div>
-
-	<div class="image-container1">
-		<img id="jester0" src="./specs/images/jester_0.png" alt="Image 1">
-		<!-- <img id="jester1" src="./specs/images/jester_1.png" alt="Image 2"> -->
-		<!-- <img src="./specs/images/jester_2.jpg" alt="Image 3">
-		<img src="./specs/images/jester_3.png" alt="Image 4">
-		<img src="./specs/images/jump_0.png" alt="Image 5">
-		<img src="./specs/images/jump_1.png" alt="Image 6"> -->
+	
+	<div class="jesters-container">
+		<div class="image-container1">
+			<img id="jester0" src="./specs/images/jester_0.png" alt="Image 1">
+			<!-- <img id="jester1" src="./specs/images/jester_1.png" alt="Image 2">
+				<img src="./specs/images/jester_2.jpg" alt="Image 3">
+				<img src="./specs/images/jester_3.png" alt="Image 4">
+				<img src="./specs/images/jump_0.png" alt="Image 5">
+				<img src="./specs/images/jump_1.png" alt="Image 6"> -->
+		</div>
+		<div class="image-container2">
+			<img id="jester3" src="./specs/images/jester_3.png" alt="Image 2">
+		</div>
 	</div>
-	<div class="image-container2">
-		<img id="jester3" src="./specs/images/jester_3.png" alt="Image 2">
-	</div>
-
+			
 	<!-- Link to external JavaScript file -->
 	<script src="../specs/tarotCards/StartScreen.js"></script>
 </body>
