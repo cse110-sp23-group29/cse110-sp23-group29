@@ -1,3 +1,4 @@
+/* BlueScreen.css */
 body {
     background-color: #b3e6ff;
     margin: 0;
@@ -10,7 +11,27 @@ body {
     align-items: flex-start;
     padding-top: 100px;
     gap: 50px; /* Add gap between cards */
+}
 
+.card-placeholder {
+    width: 140px;
+    height: 210px;
+    background-color: #f04c90;
+    margin: 10px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.card-placeholder h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
 }
 
 .card {
@@ -20,7 +41,6 @@ body {
     margin: 10px;
     position: relative;
     border-radius: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     overflow: hidden;
 }
 
@@ -105,7 +125,6 @@ body {
     align-items: center;
     justify-content: center;
     padding: 150px;
-
 }
 
 .input-field {
@@ -114,7 +133,6 @@ body {
     border: none;
     border-radius: 5px;
     font-size: 16px;
-
 }
 
 .submit-btn {
