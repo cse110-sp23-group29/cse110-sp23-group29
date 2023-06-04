@@ -50,4 +50,14 @@ document.addEventListener("DOMContentLoaded", function() {
         inputField.value = "";
       }
     });
+
+    const urlParams = new URLSearchParams(window.location.search);
+        const darkMode = urlParams.get('darkMode');
+
+        // Apply the appropriate theme or styling based on the dark mode state
+        if (darkMode === 'true') {
+            document.body.classList.add('dark-class');
+        } else {
+            document.body.classList.remove('dark-class');
+        }
 });
