@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Sets the title of the webpage -->
+	<title>Tarot Cards</title>
+	<!-- Links to the CSS stylesheet for the webpage -->
+	<link rel="stylesheet" type="text/css" href="../specs/tarotCards/StartScreen.css">
+	<!-- Preconnects to Google Fonts to improve performance -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<!-- Links to the fonts used on the webpage -->
+	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+	<audio loop id="bg-music">
+		<source src="./specs/audio/testMusic.mp3" type="audio/mp3">
+	</audio>
+	
+	<section class="main-content">
+
+		<h1 class="title">
+			<span class="below">Java</span>Script Je<span class="below">sters!</span></h1>
+			
+			<section class="buttons-container">
+				<button class="button" id="start" type="button" onclick="handleStartClick()">Start!</button>
+				<button class="button" id="settings" type="button" onclick="openPopup()">Settings</button>
+			</section>
+	</section>
+
+	<div id="popup" class="popup-container">
+		<div class="popup-content">
+			<h3 class="settings-title">Settings</h3>
+			<ul class="settings-list">
+				<li>Music
+					<input class="checkmark" id="music-button" type="checkbox" title="Music" placeholder="Music?" onclick="playMusic(this)" checked>
+					<input id="volume-slider" type="range" title="Volume" placeholder="Volume" min="0" max="100" value="30" onchange="this.value=value">
+				</li>
+				<li>Language
+					<select class="select-lang" id="lang" name="language">
+						<option value="English">English</option>
+						<option value="Chinese">中文</option>
+						<option value="Spanish">Español</option>
+						<option value="Hindi">हिंदी</option>
+					  </select>
+				</li>
+				<li>Dark Mode
+					<input class="checkmark" id="dark-mode-checkbox" type="checkbox" title="Dark Mode" placeholder="Dark Mode?" onchange= "handleCheckboxChange(this)">
+				</li>
+			</ul>
+			<button class="close" onclick="closePopup()" type="button">&times;</button>
+		</div>
+	</div>
+	
+	<div class="jesters-container">
+		<div class="image-container1">
+			<img id="jester0" src="./specs/images/jester_0.png" alt="Image 1">
+			<!-- <img id="jester1" src="./specs/images/jester_1.png" alt="Image 2">
+				<img src="./specs/images/jester_2.jpg" alt="Image 3">
+				<img src="./specs/images/jester_3.png" alt="Image 4">
+				<img src="./specs/images/jump_0.png" alt="Image 5">
+				<img src="./specs/images/jump_1.png" alt="Image 6"> -->
+		</div>
+		<div class="image-container2">
+			<img id="jester3" src="./specs/images/jester_3.png" alt="Image 2">
+		</div>
+	</div>
+			
+	<!-- Link to external JavaScript file -->
+	<script src="../specs/tarotCards/StartScreen.js"></script>
+</body>
+</html>

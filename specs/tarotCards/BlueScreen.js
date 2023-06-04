@@ -1,4 +1,14 @@
+
 document.addEventListener("DOMContentLoaded", function() {
+  // Apply settings
+  let audio = document.getElementById("bg-music");
+  audio.volume = Number(localStorage.getItem("volume"));
+  
+  let paused = localStorage.getItem("paused");
+  
+  if (paused == "true") {
+    audio.pause();
+  }
     var cards = document.querySelectorAll(".card");
     var modals = document.querySelectorAll(".modal");
     var closeModalBtns = document.getElementsByClassName("close");
@@ -40,4 +50,14 @@ document.addEventListener("DOMContentLoaded", function() {
         inputField.value = "";
       }
     });
+
+    const urlParams = new URLSearchParams(window.location.search);
+        const darkMode = urlParams.get('darkMode');
+
+        // Apply the appropriate theme or styling based on the dark mode state
+        if (darkMode === 'true') {
+            document.body.classList.add('dark-class');
+        } else {
+            document.body.classList.remove('dark-class');
+        }
 });

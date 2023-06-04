@@ -3,22 +3,47 @@ body, html {
     margin: 0;
     padding: 0;
 }
-  
+
+body {
+    background-color: lightblue;
+}
+
+/** FOR DEBUG *****************/
+.test-bg {
+    position: absolute;
+    left: -11.5%;
+    top: 31%;
+    transform: rotate(-90deg);
+    width: 40%;
+}
+/*****************************/
+
+.hidden {
+    display: none;
+}
+
 .computer {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
 }
 
 /* container for image of computer */
 .image-container {
-    display: inline-block;
+    display: flex;
     position: relative;
+    justify-content: center;
+    align-items: center;
 }
 
 #image {
-    max-width: 100%;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: auto;
 }
 
 /* The poster image initially didn't fit the within the bounds of the video player since they
@@ -34,18 +59,29 @@ body, html {
    in order to place it on top of the computer's screen */
 #video-player {
     position: absolute;
-    top: 43.65%;
-    left: 49.72%;
-    transform: translate(-50%, -50%) scale(1, 1.0125);
-    max-width: 45%;
+    top: 16.55%;
+    left: 23%;
+    width: 55.2%;
+    height: 53%;
 }
 
-/* When the screen gets small, the video will move out of the computer screen
-   This is to push it back into place */
-@media (max-width: 740px) {
-    #video-player {
-        top: 43.65%;
-        left: 49.8%;
-        transform: translate(-50.1%, -51%) scale(1, 1.0125);
-    }
+#fade-in-video {
+    position: absolute;
+    object-fit: fill;
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+    opacity: 0;
+}
+
+.fadeInAndOut {
+    animation: fadeIn 1s linear forwards;
+    z-index: 999;
+}
+
+@keyframes fadeIn {
+ 0% { opacity:0; }
+ 100% { opacity:1; } 
 }

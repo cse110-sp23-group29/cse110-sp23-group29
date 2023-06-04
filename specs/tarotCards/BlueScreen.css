@@ -127,3 +127,6 @@ body {
     border-radius: 5px;
     margin-left: 10px;
 }
+.dark-class {
+    background-color: #1a1a1a; /* Dark mode background color */
+}
