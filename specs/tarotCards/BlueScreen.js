@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function() {
   var modals = document.querySelectorAll(".modal");
   var closeModalBtns = document.getElementsByClassName("close");
   var submitBtn = document.querySelector(".submit-btn");
+  var a = document.querySelector(".input-container");
+  var b = document.querySelector(".refresh-btn");
   var buttonClicks = 0;
   var images = [
     "../specs/images/image1.png",
@@ -80,17 +82,16 @@ document.addEventListener("DOMContentLoaded", function() {
   ];
 
   // Assign random response to a card and modal
-  function assignRandomResponse(cardId, responses, modalId) {
-    const card = document.getElementById(cardId);
-    const responseElement = card.querySelector(".card-response");
+  function assignRandomResponse(responses, modalId) {
     const randomResponse = generateRandomResponse(responses);
-
     const modal = document.getElementById(modalId);
     const modalResponseElement = modal.querySelector(".response");
     modalResponseElement.textContent = randomResponse;
   }
     submitBtn.addEventListener("click", function() {
         buttonClicks++; // Increment the button clicks counter
+        a.style.display = "none";
+        b.style.display = "block";
     });
 
   // Add click event listener to each placeholder
@@ -113,13 +114,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
             `;
 
-            assignRandomResponse(`card${index + 1}`, getResponsesForCard(index), `modal${index + 1}`);
+            assignRandomResponse(getResponsesForCard(index), `modal${index + 1}`);
 
             var card = document.getElementById(`card${index + 1}`);
             card.addEventListener("click", function() {
                 card.classList.toggle("flipped");
                 modals[index].style.display = "block";
-                submitBtn.style.display = "block";
+
             });
         }
     });
@@ -149,10 +150,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
   submitBtn.addEventListener("click", function() {
     var sentence = inputField.value;
+    
     if (sentence.trim() !== "") {
       console.log("Submitted sentence:", sentence);
       inputField.value = "";
     }
+    a.style.display = "none";
   });
 
   // Shuffle an array in place
@@ -174,6 +177,10 @@ document.addEventListener("DOMContentLoaded", function() {
       return futureResponses;
     }
   }
+  var refreshBtn = document.querySelector(".refresh-btn");
+  refreshBtn.addEventListener("click", function() {
+    location.reload();
+  });
 });
 
 

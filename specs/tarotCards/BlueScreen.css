@@ -125,6 +125,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 150px;
+    /* display: none; */
 }
 
 .input-field {
@@ -148,3 +149,44 @@ body {
 .dark-class {
     background-color: #1a1a1a; /* Dark mode background color */
 }
+
+#arrow {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    color: #f04c90;
+    text-align: center;
+    cursor: pointer;
+    z-index: 9999;
+    text-decoration: none; /* Removes underline */
+    transform: rotate(-180deg); /* Makes the arrow face left */
+    font-size: 40px; /* Increases the size of the arrow */
+}
+/* custom.css */
+
+.refresh-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    text-align: center;
+  }
+  
+  .refresh-btn {
+    padding: 7px 15px;
+    background-color: transparent;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: none;
+    font-size: 16px;
+    background-color: #f04c90;
+    color: white;
+    border-radius: 10px;
+    
+  }
+  
+  
