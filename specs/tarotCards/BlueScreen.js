@@ -221,15 +221,13 @@ darkModeCheckbox.addEventListener("change", function() {
   applyTheme(isDarkMode);
 });
 
+function openPopup() {
+  document.getElementById("popup").style.display = "block";
+}
 
 function closePopup() {
   document.getElementById("popup").style.display = "none";
 }
-
-document.getElementById('settings').addEventListener('click', function() {
-  var popup = document.getElementById('popup');
-  popup.style.display = 'block';
-});
 
 function applyTheme(isDarkMode) {
   var body = document.body;
@@ -246,10 +244,6 @@ document.addEventListener("DOMContentLoaded", function() {
   applyTheme(isDarkMode === "true");
 });
 
-
-document.getElementById("settings").addEventListener("click", function() {
-  document.getElementById("popup").style.display = "block";
-});
 
 const langSelect = document.getElementById("lang");
 langSelect.addEventListener("change", function() {
