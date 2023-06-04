@@ -1,3 +1,4 @@
+// JavaScript code for BlueScreen.js
 
 document.addEventListener("DOMContentLoaded", function() {
   var placeholders = document.querySelectorAll(".card-placeholder");
@@ -28,26 +29,28 @@ document.addEventListener("DOMContentLoaded", function() {
     "../specs/images/image20.png",
     "../specs/images/image22.png",
   ];
+
   // Apply settings
   let audio = document.getElementById("bg-music");
   audio.volume = Number(localStorage.getItem("volume"));
-  
+
   let paused = localStorage.getItem("paused");
-  
+
   if (paused == "true") {
     audio.pause();
   }
-    var cards = document.querySelectorAll(".card");
-    var modals = document.querySelectorAll(".modal");
-    var closeModalBtns = document.getElementsByClassName("close");
 
-    // Flip the card and show the modal
-    cards.forEach(function(card, index) {
-      card.addEventListener("click", function() {
-        card.classList.toggle("flipped");
-        modals[index].style.display = "block";
-      });
+  var cards = document.querySelectorAll(".card");
+  var modals = document.querySelectorAll(".modal");
+  var closeModalBtns = document.getElementsByClassName("close");
+
+  // Flip the card and show the modal
+  cards.forEach(function(card, index) {
+    card.addEventListener("click", function() {
+      card.classList.toggle("flipped");
+      modals[index].style.display = "block";
     });
+  });
 
   // Shuffle the images array
   images = shuffle(images);
@@ -84,46 +87,47 @@ document.addEventListener("DOMContentLoaded", function() {
     const card = document.getElementById(cardId);
     const responseElement = card.querySelector(".card-response");
     const randomResponse = generateRandomResponse(responses);
+    responseElement.textContent = randomResponse;
 
     const modal = document.getElementById(modalId);
     const modalResponseElement = modal.querySelector(".response");
     modalResponseElement.textContent = randomResponse;
   }
-    submitBtn.addEventListener("click", function() {
-        buttonClicks++; // Increment the button clicks counter
-    });
+
+  submitBtn.addEventListener("click", function() {
+    buttonClicks++; // Increment the button clicks counter
+  });
 
   // Add click event listener to each placeholder
   placeholders.forEach(function(placeholder, index) {
-
     placeholder.addEventListener("click", function() {
-        if (images.length > 0 && buttonClicks >= 1) {
-            var randomIndex = Math.floor(Math.random() * images.length);
-            var randomImage = images[randomIndex];
-            images.splice(randomIndex, 1);
+      if (images.length > 0 && buttonClicks >= 1) {
+        var randomIndex = Math.floor(Math.random() * images.length);
+        var randomImage = images[randomIndex];
+        images.splice(randomIndex, 1);
 
-            this.outerHTML = `
-                <div id="card${index + 1}" class="card">
-                    <div class="card-inner">
-                        <div class="card-front" style="background-image: url('../specs/images/image21.png'); background-size: cover; background-position: center; background-color: transparent;"></div>
-                        <div class="card-back" style="background-image: url('${randomImage}'); background-size: cover; background-position: center; background-color: transparent;">
-                            <div class="card-response"></div>
-                        </div>
-                    </div>
-                </div>
-            `;
+        this.outerHTML = `
+          <div id="card${index + 1}" class="card">
+            <div class="card-inner">
+              <div class="card-front" style="background-image: url('../specs/images/image21.png'); background-size: cover; background-position: center; background-color: transparent;"></div>
+              <div class="card-back" style="background-image: url('${randomImage}'); background-size: cover; background-position: center; background-color: transparent;">
+                <div class="card-response"></div>
+              </div>
+            </div>
+          </div>
+        `;
 
-            assignRandomResponse(`card${index + 1}`, getResponsesForCard(index), `modal${index + 1}`);
+        assignRandomResponse(`card${index + 1}`, getResponsesForCard(index), `modal${index + 1}`);
 
-            var card = document.getElementById(`card${index + 1}`);
-            card.addEventListener("click", function() {
-                card.classList.toggle("flipped");
-                modals[index].style.display = "block";
-                submitBtn.style.display = "block";
-            });
-        }
+        var card = document.getElementById(`card${index + 1}`);
+        card.addEventListener("click", function() {
+          card.classList.toggle("flipped");
+          modals[index].style.display = "block";
+          submitBtn.style.display = "block";
+        });
+      }
     });
-});
+  });
 
   // Close the modal and flip the card back
   for (var i = 0; i < closeModalBtns.length; i++) {
@@ -176,14 +180,79 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
+const audio = new Audio('../specs/audio/testMusic.mp3');
+const musicButton = document.getElementById('music-button');
+var darkModeCheckbox = document.getElementById("dark-mode-checkbox");
 
-const urlParams = new URLSearchParams(window.location.search);
-    const darkMode = urlParams.get('darkMode');
 
-    // Apply the appropriate theme or styling based on the dark mode state
-    if (darkMode === 'true') {
-        document.body.classList.add('dark-class');
-    } else {
-        document.body.classList.remove('dark-class');
-    }
+window.addEventListener("load", function() {
+  audio.play();
 
+  if (audio.paused && musicButton.checked) {
+    musicButton.click();
+  }
+  localStorage.setItem("paused", audio.paused);
+});
+
+const volumeSlider = document.getElementById('volume-slider');
+audio.volume = volumeSlider.value / 100;
+
+localStorage.setItem("volume", volumeSlider.value / 100);
+localStorage.setItem("paused", audio.paused);
+
+volumeSlider.addEventListener("input", (e) => {
+  audio.volume = e.currentTarget.value / 100;
+  localStorage.setItem("volume", e.currentTarget.value / 100);
+});
+
+musicButton.addEventListener("click", (e) => {
+  if (e.currentTarget.checked) {
+    audio.play();
+    localStorage.setItem("paused", false);
+  } else {
+    audio.pause();
+    localStorage.setItem("paused", true);
+  }
+});
+
+darkModeCheckbox.addEventListener("change", function() {
+  var isDarkMode = this.checked;
+  localStorage.setItem("darkMode", isDarkMode);
+  applyTheme(isDarkMode);
+});
+
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+document.getElementById('settings').addEventListener('click', function() {
+  var popup = document.getElementById('popup');
+  popup.style.display = 'block';
+});
+
+function applyTheme(isDarkMode) {
+  var body = document.body;
+  if (isDarkMode) {
+    body.classList.add("dark-mode");
+  } else {
+    body.classList.remove("dark-mode");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  var isDarkMode = localStorage.getItem("darkMode");
+  darkModeCheckbox.checked = isDarkMode === "true";
+  applyTheme(isDarkMode === "true");
+});
+
+
+document.getElementById("settings").addEventListener("click", function() {
+  document.getElementById("popup").style.display = "block";
+});
+
+const langSelect = document.getElementById("lang");
+langSelect.addEventListener("change", function() {
+  const selectedLang = langSelect.value;
+  console.log("Selected language:", selectedLang);
+});

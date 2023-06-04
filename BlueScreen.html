@@ -10,52 +10,83 @@
 <body>
 
   <audio autoplay loop id="bg-music">
-		<source src="./specs/audio/testMusic.mp3" type="audio/mp3">
-	</audio>
+    <source src="../specs/audio/testMusic.mp3" type="audio/mp3">
+  </audio>
 
-    <div class="card-container">
-        <div id="past-card" class="card-placeholder">
-            <h1 class="card-title">Past</h1>
-        </div>
+  <div class="card-container">
+    <div class="card-placeholder">
+      <h1 class="card-title">Past</h1>
+    </div>
 
-        <div id="present-card" class="card-placeholder">
-            <h1 class="card-title">Present</h1>
-        </div>
+    <div class="card-placeholder">
+      <h1 class="card-title">Present</h1>
+    </div>
 
-        <div id="future-card" class="card-placeholder">
-            <h1 class="card-title">Future</h1>
-        </div>
+    <div class="card-placeholder">
+      <h1 class="card-title">Future</h1>
     </div>
-  
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Past</h2>
-            <p class="response"></p>
-        </div>
+  </div>
+
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Past</h2>
+      <p class="response"></p>
     </div>
-  
-    <div id="modal2" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Present</h2>
-            <p class="response"></p>
-        </div>
+  </div>
+
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Present</h2>
+      <p class="response"></p>
     </div>
-  
-    <div id="modal3" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Future</h2>
-            <p class="response"></p>
-        </div>
+  </div>
+
+  <div id="modal3" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Future</h2>
+      <p class="response"></p>
     </div>
-  
-    <div class="input-container">
-        <input type="text" class="input-field" placeholder="Enter a sentence">
-        <button class="submit-btn">Submit</button>
+  </div>
+
+  <div class="input-container">
+    <input type="text" class="input-field" placeholder="Enter a sentence">
+    <button class="submit-btn">Submit</button>
+  </div>
+
+  <section class="main-content">
+    <h1 class="title"></h1>
+    <section class="buttons-container">
+        <button class="button" id="settings" type="button">Settings</button>
+    </section>
+  </section>
+
+  <div id="popup" class="popup-container">
+    <div class="popup-content">
+        <h3 class="settings-title">Settings</h3>
+        <ul class="settings-list">
+            <li>Music
+                <input class="checkmark" id="music-button" type="checkbox" title="Music" placeholder="Music?" onclick="playMusic(this)" checked>
+                <input id="volume-slider" type="range" title="Volume" placeholder="Volume" min="0" max="100" value="30" onchange="this.value=value">
+            </li>
+            <li>Language
+                <select class="select-lang" id="lang" name="language">
+                    <option value="English">English</option>
+                    <option value="Chinese">中文</option>
+                    <option value="Spanish">Español</option>
+                    <option value="Hindi">हिंदी</option>
+                </select>
+            </li>
+            <li>Dark Mode
+                <input class="checkmark" id="dark-mode-checkbox" type="checkbox" title="Dark Mode" placeholder="Dark Mode?" onchange="toggleDarkMode()">
+            </li>
+        </ul>
+        <button class="close" onclick="closePopup()" type="button">&times;</button>
     </div>
-    <!-- Link to external JavaScript file -->
-    <script src="../specs/tarotCards/BlueScreen.js"></script>
+  </div>
+
+  <script src="../specs/tarotCards/BlueScreen.js"></script>
 </body>
 </html>
