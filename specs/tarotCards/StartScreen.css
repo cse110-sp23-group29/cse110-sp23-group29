@@ -60,6 +60,22 @@ body {
     border: 0px;
     box-shadow: 4px 4px 0px #D0547A, 8px 8px 0px #C0425F;
 }
+.button1 {
+    padding: 1rem;
+    margin-bottom: 2rem;
+    background-color: #EC7C95;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    display: block;
+    border-radius: 10px;
+    border: 0px;
+    box-shadow: 4px 4px 0px #D0547A, 8px 8px 0px #C0425F;
+    position: absolute;
+    top: 25px; /* Adjust the top position as needed */
+    right: 40px; /* Adjust the left position as needed */
+}
 
 .button:active {
     box-shadow: none;

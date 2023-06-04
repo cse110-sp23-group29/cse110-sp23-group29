@@ -2,6 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="../specs/tarotCards/BlueScreen.css">
+    <link rel="stylesheet" href="../specs/tarotCards/StartScreen.css">
     <!-- Sets the title of the webpage -->
     <title>Tarot Cards</title>
     <link rel="stylesheet" type="text/css" href="../specs/tarotCards/BlueScreen.css">
@@ -60,8 +61,38 @@
         <button class="refresh-btn">Click to ask for a new fortune</button>
     </div>
 
+    <button class="button1" id="settings" type="button" onclick="openPopup()">Settings</button>
+    <audio loop id="bg-music">
+		<source src="./specs/audio/testMusic.mp3" type="audio/mp3">
+	</audio>
+
+    <div id="popup" class="popup-container">
+		<div class="popup-content">
+			<h3 class="settings-title">Settings</h3>
+			<ul class="settings-list">
+				<li>Music
+					<input class="checkmark" id="music-button" type="checkbox" title="Music" placeholder="Music?" onclick="playMusic(this)" checked>
+					<input id="volume-slider" type="range" title="Volume" placeholder="Volume" min="0" max="100" value="30" onchange="this.value=value">
+				</li>
+				<li>Language
+					<select class="select-lang" id="lang" name="language">
+						<option value="English">English</option>
+						<option value="Chinese">中文</option>
+						<option value="Spanish">Español</option>
+						<option value="Hindi">हिंदी</option>
+					  </select>
+				</li>
+				<li>Dark Mode
+					<input class="checkmark" id="dark-mode-checkbox" type="checkbox" title="Dark Mode" placeholder="Dark Mode?" onchange= "handleCheckboxChange(this)">
+				</li>
+			</ul>
+			<button class="close" onclick="closePopup()" type="button">&times;</button>
+		</div>
+	</div>
+
     <a id="arrow" href="../StartScreen.html">&#10140;</a>
     <!-- Link to external JavaScript file -->
     <script src="../specs/tarotCards/BlueScreen.js"></script>
+    <script src="../specs/tarotCards/StartScreen.js"></script>
 </body>
 </html>
