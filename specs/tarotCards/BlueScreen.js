@@ -177,13 +177,13 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-    const urlParams = new URLSearchParams(window.location.search);
-        const darkMode = urlParams.get('darkMode');
+const urlParams = new URLSearchParams(window.location.search);
+    const darkMode = urlParams.get('darkMode');
 
-        // Apply the appropriate theme or styling based on the dark mode state
-        if (darkMode === 'true') {
-            document.body.classList.add('dark-class');
-        } else {
-            document.body.classList.remove('dark-class');
-        }
-});
+    // Apply the appropriate theme or styling based on the dark mode state
+    if (darkMode === 'true') {
+        document.body.classList.add('dark-class');
+    } else {
+        document.body.classList.remove('dark-class');
+    }
+
