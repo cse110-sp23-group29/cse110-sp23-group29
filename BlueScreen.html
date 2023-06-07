@@ -1,89 +1,125 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Link to the BlueScreen stylesheet -->
     <link rel="stylesheet" href="../specs/tarotCards/BlueScreen.css">
+
+    <!-- Link to the StartScreen stylesheet -->
     <link rel="stylesheet" href="../specs/tarotCards/StartScreen.css">
+
     <!-- Sets the title of the webpage -->
     <title>Tarot Cards</title>
+
+    <!-- Link to the BlueScreen stylesheet (again) -->
     <link rel="stylesheet" type="text/css" href="../specs/tarotCards/BlueScreen.css">
+
+    <!-- Links to the fonts used on the webpage -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-  <audio autoplay loop id="bg-music">
-		<source src="./specs/audio/testMusic.mp3" type="audio/mp3">
-	</audio>
-
-    <div class="card-container">
-        <div id="past-card" class="card-placeholder">
-            <h1 class="card-title">Past</h1>
+    <!-- Form container -->
+    <div class="form-container">
+        <h1>Enter these details for your fortune to be told</h1>
+        <input type="text" id="name" placeholder="Name">
+        <br>
+        <input type="text" id="city" placeholder="City of Birth">
+        <br>
+        <input type="date" id="date" placeholder="Date of Birth">
+        <br>
+        <button onclick="validateForm()">Submit</button>
+    </div>
+    
+    <!-- Card container -->
+    <div class="card-container" style="display: none;">
+        <!-- Past card -->
+        <div class="card top-left" onclick="displayFortune('past', this); flipCard(this);">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content"></div>
+                </div>
+                <div class="card-back">
+                    <div class="card-content"></div>
+                </div>
+            </div>
         </div>
-
-        <div id="present-card" class="card-placeholder">
-            <h1 class="card-title">Present</h1>
+        
+        <!-- Present card -->
+        <div class="card top-middle" onclick="displayFortune('present', this); flipCard(this)">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content"></div>
+                </div>
+                <div class="card-back">
+                    <div class="card-content"></div>
+                </div>
+            </div>
         </div>
-
-        <div id="future-card" class="card-placeholder">
-            <h1 class="card-title">Future</h1>
+    
+        <!-- Future card -->
+        <div class="card top-right" onclick="displayFortune('future', this); flipCard(this)">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-content"></div>
+                </div>
+                <div class="card-back">
+                    <div class="card-content"></div>
+                </div>
+            </div>
         </div>
     </div>
-  
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Past</h2>
-            <p class="response"></p>
+    
+    <!-- Bottom left card -->
+    <div class="bottom-left" style="display: none;">
+        <div class="card1" onclick="displayFortune('past', this)">
+            <h3>Past Fortune<br><br></h3>
+            <p class="fortune" id="pastFortune"></p>
         </div>
     </div>
-  
-    <div id="modal2" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Present</h2>
-            <p class="response"></p>
+    
+    <!-- Bottom middle card -->
+    <div class="bottom-middle" style="display: none;">
+        <div class="card1" onclick="displayFortune('present', this)">
+            <h3>Present Fortune<br><br></h3>
+            <p class="fortune" id="presentFortune"></p>
         </div>
     </div>
-  
-    <div id="modal3" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Future</h2>
-            <p class="response"></p>
+    
+    <!-- Bottom right card -->
+    <div class="bottom-right" style="display: none;">
+        <div class="card1" onclick="displayFortune('future', this)">
+            <h3>Future Fortune<br><br></h3>
+            <p class="fortune" id="futureFortune"></p>
         </div>
     </div>
-  
-    <div class="input-container">
-        <input type="text" class="input-field" placeholder="Enter a sentence">
-        <button class="submit-btn">Submit</button>
-    </div>
 
-    <div class="refresh-container">
-        <button class="refresh-btn">Click to ask for a new fortune</button>
-    </div>
-
-    <button class="button1" id="settings" type="button" onclick="openPopup()">Settings</button>
-    <audio loop id="bg-music">
-		<source src="./specs/audio/testMusic.mp3" type="audio/mp3">
-	</audio>
-
+    <!-- Settings popup container -->
     <div id="popup" class="popup-container">
-		<div class="popup-content">
-			<h3 class="settings-title">Settings</h3>
-			<ul class="settings-list">
-				<li>Music
-					<input class="checkmark" id="music-button" type="checkbox" title="Music" placeholder="Music?" onclick="playMusic(this)" checked>
-					<input id="volume-slider" type="range" title="Volume" placeholder="Volume" min="0" max="100" value="30" onchange="this.value=value">
-				</li>
-				<li>Dark Mode
-					<input class="checkmark" id="dark-mode-checkbox" type="checkbox" title="Dark Mode" placeholder="Dark Mode?" onchange= "handleCheckboxChange(this)" unchecked>
-				</li>
-			</ul>
-			<button class="close" onclick="closePopup()" type="button">&times;</button>
-		</div>
-	</div>
+        <div class="popup-content">
+            <h3 class="settings-title">Settings</h3>
+            <ul class="settings-list">
+                <li>Music
+                    <input class="checkmark" id="music-button" type="checkbox" title="Music" placeholder="Music?" onclick="playMusic(this)" checked>
+                    <input id="volume-slider" type="range" title="Volume" placeholder="Volume" min="0" max="100" value="30" onchange="this.value=value">
+                </li>
+                <li>Dark Mode
+                    <input class="checkmark" id="dark-mode-checkbox" type="checkbox" title="Dark Mode" placeholder="Dark Mode?" onchange="handleCheckboxChange(this)">
+                </li>
+            </ul>
+            <button class="close" onclick="closePopup()" type="button">&times;</button>
+        </div>
+    </div>
 
+    <!-- Link to return to the StartScreen -->
     <a id="arrow" href="../StartScreen.html">&#10140;</a>
-    <!-- Link to external JavaScript file -->
+
+    <!-- Settings and volume icons -->
+    <img src="./specs/images/setting.png" alt="Settings" class="settings-icon" onclick="openPopup()" />
+    <img src="./specs/images/volume-on.png" alt="Volume" class="volume-icon" id="volumeIcon" onclick="toggleVolume()" onclick="playMusic(this)" />
+
+    <!-- Link to external JavaScript files -->
     <script src="../specs/tarotCards/BlueScreen.js"></script>
     <script src="../specs/tarotCards/StartScreen.js"></script>
 </body>

@@ -22,18 +22,32 @@ volumeSlider.addEventListener("input", (e) => {
     localStorage.setItem("volume", audio.volume);
 });
 
-function playMusic(checkbox){
-    if(checkbox.checked){
-        audio.play();
-    } else {
-        audio.pause();
-    }
-    localStorage.setItem("paused", audio.paused);
-}
+ function playMusic(checkbox){
+     if(checkbox.checked){
+         audio.play();
+     } else {
+         audio.pause();
+     }
+     localStorage.setItem("paused", audio.paused);
+ }
 
-// function handleStartClick() {
-//     window.location.href = '../BlueScreen.html'
-// }
+ var isAudioPlaying = true;
+
+ function toggleVolume() {
+     var volumeIcon = document.getElementById("volumeIcon");
+    
+     if (isAudioPlaying) {
+         audio.pause();
+         volumeIcon.src = "./specs/images/volume-off.png";
+         isAudioPlaying = false;
+         musicButton.checked = false; 
+     } else {
+         audio.play();
+         volumeIcon.src = "./specs/images/volume-on.png";
+         isAudioPlaying = true;
+         musicButton.checked = true; 
+     }
+ }
 
 function openPopup() {
     document.getElementById("popup").style.display = "flex";

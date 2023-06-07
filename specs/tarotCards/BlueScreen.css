@@ -1,156 +1,207 @@
 /* BlueScreen.css */
+
+/* Styling for the body */
 body {
-    background-color: #b3e6ff;
-    margin: 0;
-    padding: 0;
-}
-
-.card-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 100px;
-    gap: 50px; /* Add gap between cards */
-}
-
-.card-placeholder {
-    width: 140px;
-    height: 210px;
-    background-color: #f04c90;
-    margin: 10px;
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.card-placeholder h1 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-}
-
-.card {
-    width: 140px;
-    height: 210px;
-    perspective: 1000px;
-    margin: 10px;
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.card-inner {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.6s;
-}
-
-.card-front,
-.card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-}
-
-.card-front {
-    background-color: #f04c90;
-    transform: rotateY(0deg);
-}
-
-.card-back {
-    background-color: #b3e6ff;
-    transform: rotateY(180deg);
-}
-
-.card.flipped .card-inner {
-    transform: rotateY(180deg);
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 180px;
-    height: 280px;
-    border-radius: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    background-color: #f04c90;
-    padding: 20px;
-}
-
-.modal-content {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100%;
-}
-
-.close {
-    color: #aaa;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.input-container {
-    display: flex;
+    min-height: 100vh;
+    background-color: #b3e6ff;
+    font-family: 'Press Start 2P', cursive;
+  }
+  
+  /* Styling for the form container and card container */
+  .form-container,
+  .card-container {
+    text-align: center;
+    animation: fade-in 1s;
+    color: white;
+  }
+  
+  /* Styling for input elements in the form container */
+  .form-container input {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+    border-radius: 10px;
+    font-family: 'Press Start 2P', cursive;
+  }
+  
+  /* Styling for the submit button in the form container */
+  .form-container button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #D0547A;
+    color: white;
+  }
+  
+  /* Styling for the heading in the form container */
+  .form-container h1 {
+    color: #D0547A;
+    font-size: 25px;
+    padding: 30px;
+  }
+  
+  /* Styling for the error class */
+  .error {
+    border: 1px solid #D0547A;
+    animation: shake 0.5s;
+  }
+  
+  /* Styling for the card */
+  .card {
+    display: inline-flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 150px;
-    /* display: none; */
-}
-
-.input-field {
-    width: 500px;
+    width: 150px;
+    height: 225px;
     padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-.submit-btn {
-    padding: 10px 20px;
-    border: none;
-    background-color: #f04c90;
-    color: white;
-    font-size: 16px;
+    margin: 10px;
+    border-radius: 10px;
     cursor: pointer;
-    border-radius: 5px;
-    margin-left: 10px;
-}
-.dark-class {
-    background-color: #1a1a1a; /* Dark mode background color */
-}
-
-#arrow {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-color: transparent;
+    perspective: 1000px;
+    top: -150px;
+  }
+  
+  /* Styling for the card1 class */
+  .card1 {
+    /* display: inline-flex; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 225px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    background-size: cover;
+    color: white;
+    background-color: #D0547A;
+    perspective: 1000px;
+    top: -50px;
+    animation: fade-in 1s;
+    font-size: 10px;
+  }
+  
+  /* Styling for the card-inner class */
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Styling for the flipped card */
+  .card.flip .card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Styling for the front and back of the card */
+  .card-front,
+  .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  
+  /* Styling for the front of the card */
+  .card-front {
+    background-image: url('../images/image21.png');
+    background-size: cover;
+    background-position: center;
+    background-color: transparent;
+    color: white;
+  }
+  
+  /* Styling for the back of the card */
+  .card-back {
+    color: white;
+    transform: rotateY(180deg);
+    background-position: center;
+    background-color: transparent;
+    background-size: cover;
+  }
+  
+  /* Styling for the content within the card */
+  .card-content {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Styling for the pseudo elements of the card */
+  .card::before,
+  .card::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  
+  /* Styling for headings and paragraphs within the card */
+  .card h3,
+  .card p {
+    margin: 0;
+  }
+  
+  /* Styling for the heading within the card */
+  .card h3 {
+    font-size: 16px;
+  }
+  
+  /* Styling for the fortune paragraph within the card */
+  .card p.fortune {
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  /* Styling for the bottom-left card container */
+  .bottom-left {
+    position: fixed;
+    bottom: 10px;
+    left: 30%;
+  }
+  
+  /* Styling for the bottom-middle card container */
+  .bottom-middle {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* Styling for the bottom-right card container */
+  .bottom-right {
+    position: fixed;
+    bottom: 10px;
+    right: 30%;
+  }
+  
+  /* Keyframe animation for fading in */
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  /* Keyframe animation for shaking */
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+    20%, 40%, 60%, 80% { transform: translateX(10px); }
+  }
+  
+  /* Styling for the arrow link */
+  #arrow {
     position: fixed;
     top: 30px;
     left: 30px;
@@ -164,29 +215,5 @@ body {
     text-decoration: none; /* Removes underline */
     transform: rotate(-180deg); /* Makes the arrow face left */
     font-size: 40px; /* Increases the size of the arrow */
-}
-/* custom.css */
-
-.refresh-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
-    text-align: center;
   }
-  
-  .refresh-btn {
-    padding: 7px 15px;
-    background-color: transparent;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    display: none;
-    font-size: 16px;
-    background-color: #f04c90;
-    color: white;
-    border-radius: 10px;
-    
-  }
-  
   
