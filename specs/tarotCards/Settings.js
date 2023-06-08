@@ -1,5 +1,4 @@
 class AudioSettings {
-
     constructor(audioID, musicCheckBoxID, volumeSliderID, volumeIconID) {
         this.audio = document.getElementById(audioID);
         this.musicCheckBox = document.getElementById(musicCheckBoxID);
@@ -7,7 +6,8 @@ class AudioSettings {
         this.volumeIcon = document.getElementById(volumeIconID);
 
         this.audio.volume = this.volumeSlider.value / 100;
-        localStorage.setItem("volume", this.audio.volume);
+        if (!localStorage.getItem("paused"));
+            this.audio.play();
     }
 
     adjustVolume(volume) {
@@ -73,6 +73,11 @@ function applyTheme(isDarkMode) {
 function handleStartClick() {
   // Retrieve the dark mode state from Local Storage
   let isDarkMode = localStorage.getItem("darkMode");
+
+  // if the dark mode setting was not toggled before,
+  // there wont be anything in local storage
+  if (isDarkMode == null)
+    isDarkMode = false;
 
   // Redirect to the new page with the dark mode state as a query parameter
   let url = "../BlueScreen.html?darkMode=" + isDarkMode;
