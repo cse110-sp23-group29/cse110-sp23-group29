@@ -1,7 +1,7 @@
 
+const audioSettings = new AudioSettings('bg-music', 'music-button', 'volume-slider', 'volume-icon');
+
 window.addEventListener("load", function() {
-    
-    const audioSettings = new AudioSettings('bg-music', 'music-button', 'volume-slider', 'volume-icon');
 
     audioSettings.volumeSlider.addEventListener("input", (e) => {
         audioSettings.adjustVolume(e.currentTarget.value / 100);
@@ -28,8 +28,6 @@ window.addEventListener("load", function() {
     // if the audio is paused but the music checkbox is checked, uncheck it
     if (audioSettings.audio.paused && audioSettings.musicCheckBox.checked) 
         audioSettings.musicCheckBox.click();
-    
-    localStorage.setItem("paused", audioSettings.audio.paused);
 
     if (localStorage.getItem("darkMode") === 'true')
         document.body.classList.add("dark-class");

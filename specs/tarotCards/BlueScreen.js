@@ -1,4 +1,6 @@
 
+const audioSettings = new AudioSettings('bg-music', 'music-button', 'volume-slider', 'volume-icon');
+
 document.addEventListener("DOMContentLoaded", function() {
   var placeholders = document.querySelectorAll(".card-placeholder");
   var modals = document.querySelectorAll(".modal");
@@ -32,8 +34,6 @@ document.addEventListener("DOMContentLoaded", function() {
   ];
   
   // Apply settings
-  const audioSettings = new AudioSettings('bg-music', 'music-button', 'volume-slider', 'volume-icon');
-
   audioSettings.volumeSlider.addEventListener("input", (e) => {
     audioSettings.adjustVolume(e.currentTarget.value / 100);
   });
