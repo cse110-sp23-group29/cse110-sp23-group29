@@ -10,9 +10,9 @@
 
 <body>
 
-  <audio autoplay loop id="bg-music">
+    <audio autoplay loop id="bg-music">
 		<source src="./specs/audio/testMusic.mp3" type="audio/mp3">
-	</audio>
+    </audio>
 
     <div class="card-container">
         <div id="past-card" class="card-placeholder">
@@ -61,26 +61,17 @@
         <button class="refresh-btn">Click to ask for a new fortune</button>
     </div>
 
-    <button class="button1" id="settings" type="button" onclick="openPopup()">Settings</button>
-    <audio loop id="bg-music">
-		<source src="./specs/audio/testMusic.mp3" type="audio/mp3">
-	</audio>
+    <!-- Settings -->
+    <img src="./specs/images/setting.png" alt="Settings" class="settings-icon" onclick="openPopup()" />
+	<img src="./specs/images/volume-on.png" alt="Volume" class="volume-icon" id="volume-icon"/>
 
     <div id="popup" class="popup-container">
 		<div class="popup-content">
 			<h3 class="settings-title">Settings</h3>
 			<ul class="settings-list">
 				<li>Music
-					<input class="checkmark" id="music-button" type="checkbox" title="Music" placeholder="Music?" onclick="playMusic(this)" checked>
+					<input class="checkmark" id="music-button" type="checkbox" title="Music" placeholder="Music?" checked>
 					<input id="volume-slider" type="range" title="Volume" placeholder="Volume" min="0" max="100" value="30" onchange="this.value=value">
-				</li>
-				<li>Language
-					<select class="select-lang" id="lang" name="language">
-						<option value="English">English</option>
-						<option value="Chinese">中文</option>
-						<option value="Spanish">Español</option>
-						<option value="Hindi">हिंदी</option>
-					  </select>
 				</li>
 				<li>Dark Mode
 					<input class="checkmark" id="dark-mode-checkbox" type="checkbox" title="Dark Mode" placeholder="Dark Mode?" onchange= "handleCheckboxChange(this)">
@@ -92,7 +83,7 @@
 
     <a id="arrow" href="../StartScreen.html">&#10140;</a>
     <!-- Link to external JavaScript file -->
+    <script src="../specs/tarotCards/Settings.js"></script>
     <script src="../specs/tarotCards/BlueScreen.js"></script>
-    <script src="../specs/tarotCards/StartScreen.js"></script>
 </body>
 </html>
