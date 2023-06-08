@@ -30,26 +30,54 @@ document.addEventListener("DOMContentLoaded", function() {
     "../specs/images/image20.png",
     "../specs/images/image22.png",
   ];
+  
   // Apply settings
-  let audio = document.getElementById("bg-music");
-  audio.volume = Number(localStorage.getItem("volume"));
-  
-  let paused = localStorage.getItem("paused");
-  
-  if (paused == "true") {
-    audio.pause();
-  }
-    var cards = document.querySelectorAll(".card");
-    var modals = document.querySelectorAll(".modal");
-    var closeModalBtns = document.getElementsByClassName("close");
+  const audioSettings = new AudioSettings('bg-music', 'music-button', 'volume-slider', 'volume-icon');
 
-    // Flip the card and show the modal
-    cards.forEach(function(card, index) {
-      card.addEventListener("click", function() {
-        card.classList.toggle("flipped");
-        modals[index].style.display = "block";
-      });
+  audioSettings.volumeSlider.addEventListener("input", (e) => {
+    audioSettings.adjustVolume(e.currentTarget.value / 100);
+  });
+
+  audioSettings.musicCheckBox.addEventListener('change', () => {
+      audioSettings.toggleMusic();
+  });
+
+  audioSettings.volumeIcon.addEventListener('click', () =>{
+      audioSettings.toggleVolumeIcon();
+  });
+
+  // if audio should be paused, pause and change volume icon
+  if (localStorage.getItem("paused")) {
+      audioSettings.audio.pause();
+      audioSettings.volumeIcon.src = "./specs/images/volume-off.png";
+  }
+  else {
+      audioSettings.audio.play();
+      audioSettings.volumeIcon.src = "./specs/images/volume-on.png";
+  }
+
+  // if the audio is paused but the music checkbox is checked, uncheck it
+  if (audioSettings.audio.paused && audioSettings.musicCheckBox.checked) 
+      audioSettings.musicCheckBox.click();
+
+  let darkMode = localStorage.getItem("darkMode");
+  // Apply the appropriate theme or styling based on the dark mode state
+  if (darkMode === 'true') {
+    document.body.classList.add('dark-class');
+  } else {
+    document.body.classList.remove("dark-class");
+  }
+
+  var cards = document.querySelectorAll(".card");
+  var modals = document.querySelectorAll(".modal");
+  var closeModalBtns = document.getElementsByClassName("close");
+  // Flip the card and show the modal
+  cards.forEach(function(card, index) {
+    card.addEventListener("click", function() {
+      card.classList.toggle("flipped");
+      modals[index].style.display = "block";
     });
+  });
 
   // Shuffle the images array
   images = shuffle(images);
@@ -182,15 +210,4 @@ document.addEventListener("DOMContentLoaded", function() {
     location.reload();
   });
 });
-
-
-const urlParams = new URLSearchParams(window.location.search);
-    const darkMode = urlParams.get('darkMode');
-
-    // Apply the appropriate theme or styling based on the dark mode state
-    if (darkMode === 'true') {
-        document.body.classList.add('dark-class');
-    } else {
-        document.body.classList.remove('dark-class');
-    }
 
