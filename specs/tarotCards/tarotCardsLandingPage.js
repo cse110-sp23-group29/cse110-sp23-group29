@@ -3,9 +3,9 @@ function handleVideoClick() {
   let transitionVideo = document.getElementById("fade-in-video");
   let computer = document.getElementsByClassName("image-container")[0];
 
-  // zoom in on computer if window is bigger than 700px.
+  // zoom in on computer if window is bigger than 900px.
   // if window is any smaller, the zoom in wont scale right.. will fix later
-  if (window.innerWidth > 700) {
+  if (window.innerWidth > 900) {
     let rangeX = computer.offsetWidth;
     let vw = 0;
     vw = rangeX / Math.min(window.innerWidth, window.innerHeight);
