@@ -15,6 +15,7 @@
 	<audio autoplay loop id="bg-music">
 		<source src="./specs/audio/testMusic.mp3" type="audio/mp3">
 	</audio>
+	<!-- <audio src="./path/to/audio/testMusic.mp3" id="audio" autoplay></audio> -->
 	
 	<section class="main-content">
 		<h1 class="title">
@@ -22,9 +23,10 @@
 			
 			<section class="buttons-container">
 				<button class="button" id="start" type="button" onclick="handleStartClick()">Start!</button>
+				<!-- <button class="button" id="settings" type="button" onclick="openPopup()">Settings</button> -->
 			</section>
 		<img src="./specs/images/setting.png" alt="Settings" class="settings-icon" onclick="openPopup()" />
-		<img src="./specs/images/volume-on.png" alt="Volume" class="volume-icon" id="volume-icon" />
+		<img src="./specs/images/volume-on.png" alt="Volume" class="volume-icon" id="volumeIcon"  onclick="toggleVolume()" onclick="playMusic(this)" />
 			
 	</section>
 
