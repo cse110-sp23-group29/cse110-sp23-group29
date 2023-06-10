@@ -9,6 +9,6 @@ jobs:
         - name: Build
           uses: andstor/jsdoc-action@v1
           with:
-            source_dir: ./specs/tarotCards
+            source_dir: ./cse110-sp23-group29/cse110-sp23-group29.github.io/specs/tarotCards
             recurse: true
             output_dir: ./documentation
