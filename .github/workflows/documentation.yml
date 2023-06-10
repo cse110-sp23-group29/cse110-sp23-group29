@@ -1,16 +1,13 @@
 name: Javascript Documentation
 
-on: 
-  push:
-    branches:
-      - main
+on: push
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: JSDoc Action
-        uses: andstor/jsdoc-action@v1
+    deploy:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Build
+          uses: andstor/jsdoc-action@v1
           with:
             source_dir: ./specs/tarotCards
             recurse: false
