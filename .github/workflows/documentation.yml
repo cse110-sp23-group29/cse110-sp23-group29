@@ -6,9 +6,12 @@ jobs:
     deploy:
       runs-on: ubuntu-latest
       steps:
+        - name: Checkout code
+          uses: actions/checkout@v3
+
         - name: Build
           uses: andstor/jsdoc-action@v1
           with:
-            source_dir: ./cse110-sp23-group29/specs/tarotCards
+            source_dir: ./specs/tarotCards
             recurse: true
             output_dir: ./documentation
