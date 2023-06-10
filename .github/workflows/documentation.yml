@@ -10,5 +10,5 @@ jobs:
           uses: andstor/jsdoc-action@v1
           with:
             source_dir: ./specs/tarotCards
-            recurse: false
+            recurse: true
             output_dir: ./documentation
