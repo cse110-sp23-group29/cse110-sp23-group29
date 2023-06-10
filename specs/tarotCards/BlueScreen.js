@@ -1,3 +1,5 @@
+const audioSettings = new AudioSettings('bg-music', 'music-button', 'volume-slider', 'volume-icon');
+
 // Declaring the selectedArcana object
 var selectedArcana = {
     past: [],

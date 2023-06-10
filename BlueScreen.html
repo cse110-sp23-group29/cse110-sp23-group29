@@ -108,7 +108,7 @@
                     <input class="checkmark" id="dark-mode-checkbox" type="checkbox" title="Dark Mode" placeholder="Dark Mode?" onchange="handleCheckboxChange(this)">
                 </li>
             </ul>
-            <button class="close" onclick="closePopup()" type="button">&times;</button>
+            <button class="closePopup" onclick="closePopup()" type="button">&times;</button>
         </div>
     </div>
 
@@ -117,9 +117,11 @@
 
     <!-- Settings and volume icons -->
     <img src="./specs/images/setting.png" alt="Settings" class="settings-icon" onclick="openPopup()" />
-    <img src="./specs/images/volume-on.png" alt="Volume" class="volume-icon" id="volumeIcon" onclick="toggleVolume()" onclick="playMusic(this)" />
+    <img src="./specs/images/volume-on.png" alt="Volume" class="volume-icon" id="volume-icon" />
 
     <!-- Link to external JavaScript files -->
+    <script src="../specs/tarotCards/Settings.js"></script>
     <script src="../specs/tarotCards/BlueScreen.js"></script>
+    <script src="../specs/tarotCards/StartScreen.js"></script>
 </body>
 </html>
