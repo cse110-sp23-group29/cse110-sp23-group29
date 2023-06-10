@@ -6,8 +6,8 @@ class AudioSettings {
         this.volumeIcon = document.getElementById(volumeIconID);
 
         this.audio.volume = this.volumeSlider.value / 100;
-        if (!localStorage.getItem("paused"));
-            this.audio.play();
+    //     if (!localStorage.getItem("paused"));
+    //         this.audio.play();
     }
 
     adjustVolume(volume) {
@@ -17,6 +17,7 @@ class AudioSettings {
             this.volumeIcon.src = "./specs/images/volume-off.png";
         else
             this.volumeIcon.src = "./specs/images/volume-on.png";
+            this.toggleMusic();
 
         localStorage.setItem("volume", volume);
     }
