@@ -306,3 +306,4 @@ var selectedArcana = {
     card.classList.toggle("flip");
   }
   
+  
