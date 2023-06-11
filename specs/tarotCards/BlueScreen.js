@@ -277,7 +277,7 @@ var selectedArcana = {
         "The Moon": "Pay attention to your intuition and subconscious mind in the present. Navigate through uncertainty by trusting your inner guidance and seeking clarity.",
         "The Sun": "Bask in the energy of joy, success, and positivity. Embrace the abundance and celebrate the light that shines upon your life.",
         "Judgment": "Evaluate your choices and actions, and embrace the opportunity for personal growth and transformation.",
-        "The World": "Celebrate your achievements and recognize the interconnectedness of your journey with the world around you.",
+        "The World": "Celebrate your achievements and recognize the connection of your journey with the world around you.",
       },
       future: {
         "The Fool": "The future holds new adventures and opportunities for growth and exploration.",
