@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: StartScreen.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,57 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: StartScreen.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @type {AudioSettings}
+ */
+const audioSettings = new AudioSettings('bg-music', 'music-button', 'volume-slider', 'volume-icon');
 
+window.addEventListener("load", function() {
 
-    <h3> </h3>
+    audioSettings.volumeSlider.addEventListener("input", (e) => {
+        audioSettings.adjustVolume(e.currentTarget.value / 100);
+    });
 
+    audioSettings.musicCheckBox.addEventListener('change', () => {
+        audioSettings.toggleMusic();
+    });
 
-
-
-
-
-
-
-
-
+    audioSettings.volumeIcon.addEventListener('click', () =>{
+        audioSettings.toggleVolumeIcon();
+    });
     
+    /**
+     * If audio should be paused, pause the audio and change the volume icon
+     */
+    if (localStorage.getItem("paused")) {
+        audioSettings.audio.pause();
+        audioSettings.volumeIcon.src = "./specs/images/volume-off.png";
+    }
+    else {
+        audioSettings.audio.play();
+        audioSettings.volumeIcon.src = "./specs/images/volume-on.png";
+    }
 
+    // if the audio is paused but the music checkbox is checked, uncheck it
+    if (audioSettings.audio.paused &amp;&amp; audioSettings.musicCheckBox.checked) 
+        audioSettings.musicCheckBox.click();
 
-
-
-
+    if (localStorage.getItem("darkMode") === 'true')
+        document.body.classList.add("dark-class");
+    else
+        document.body.classList.remove("dark-class");
+});</code></pre>
+        </article>
+    </section>
 
 
 
