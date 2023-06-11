@@ -67,7 +67,7 @@ var selectedArcana = {
     }
   
     // Checking if isValid is true
-    if (true) {
+    if (isValid) {
       document.querySelector(".form-container").style.display = "none";
       document.querySelector(".card-container").style.display = "flex";
     }
