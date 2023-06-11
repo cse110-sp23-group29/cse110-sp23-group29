@@ -67,7 +67,7 @@ var selectedArcana = {
     }
   
     // Checking if isValid is true
-    if (isValid) {
+    if (true) {
       document.querySelector(".form-container").style.display = "none";
       document.querySelector(".card-container").style.display = "flex";
     }
@@ -79,7 +79,7 @@ var selectedArcana = {
     var images = {
       "The Fool": "../specs/images/image3.png",
       "The Magician": "../specs/images/image1.png",
-      "The High Priestess": "../images/image2.png",
+      "The High Priestess": "../specs/images/image2.png",
       // ... Include images for other cards
       "The Empress": "../specs/images/image23.png",
       "The Emperor": "../specs/images/image4.png",
