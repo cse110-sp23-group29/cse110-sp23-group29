@@ -11,6 +11,6 @@ function exampleJSComment(){
 * @param {string} tester test Paramater
 * @returns {string}None
 */
-function exampleJSComment(test){
+function exampleFunctionSecond(test){
 
 }
