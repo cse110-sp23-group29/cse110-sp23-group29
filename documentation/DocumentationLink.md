@@ -1,3 +1,3 @@
-## JS Documentation Link
+## JSDoc Website Link
 
-[Test Link](https://cse110-sp23-group29.github.io/documentation/global.html)
+[Global Documentation Link](https://cse110-sp23-group29.github.io/documentation/global.html)
