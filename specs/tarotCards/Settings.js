@@ -1,12 +1,11 @@
 class AudioSettings {
-    /**
-     * Audio Settings Constructor
-     * @file Settings
-     * @param audioID - ID for audio
-     * @param musicCheckBoxID - Music Toggle ID
-     * @param volumeSliderID  - Volume Slider ID
-     * @param volumeIconID - Volume Toggle Icon ID
-     */
+/**
+ * Audio Settings Constructor
+ * @param audioID - ID for audio
+ * @param musicCheckBoxID - Music Toggle ID
+ * @param volumeSliderID  - Volume Slider ID
+ * @param volumeIconID - Volume Toggle Icon ID
+ */
     constructor(audioID, musicCheckBoxID, volumeSliderID, volumeIconID) {
         this.audio = document.getElementById(audioID);
         this.musicCheckBox = document.getElementById(musicCheckBoxID);
@@ -18,8 +17,7 @@ class AudioSettings {
     //         this.audio.play();
     }
     /**
-     * Volume Adjustor
-     *  @file Settings
+     * Adjustor for Volume
      * @name adjustVolume
      * @param {number} volume 
      */
@@ -35,7 +33,7 @@ class AudioSettings {
         localStorage.setItem("volume", volume);
     }
     /**
-     * Music Toggle, On or Off
+     * On and Off toggle for Music
      * @name toggleMusic
      */
     toggleMusic() {
@@ -66,7 +64,7 @@ class AudioSettings {
 }
 
 /**
- * Dark Mode Toggle
+ * Toggle for Dark Mode Selection
  * @name toggleDarkMode
  */
 function toggleDarkMode() {
