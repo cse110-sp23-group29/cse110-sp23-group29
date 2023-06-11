@@ -30,6 +30,7 @@ document.addEventListener('load', () => {
 // Declaring the selectedArcana object
 /**
  * Declaring selectedArcana Object
+ * @name selectedArcana
  * @type {Object<Array>}
  */
 var selectedArcana = {
@@ -39,7 +40,8 @@ var selectedArcana = {
   };
   
 /**
-*Function to validate the form
+* Function to validate the form
+* @name validateForm
 */
   function validateForm() {
     // Getting form input values
@@ -80,7 +82,8 @@ var selectedArcana = {
   }
   
 /**
-*Function to display fortune based on position and card
+* Function to display fortune based on position and card
+*@name displayFortune
 *@param {number} position - Card Position
 *@param {cardObject} card - Card Type
 */
@@ -113,6 +116,7 @@ var selectedArcana = {
 
 /**
  * Object containing available arcana at each position
+ * @name arcana
  * @type {Object<Array>} Card Type Dictionary
  */
     var arcana = {
@@ -193,6 +197,7 @@ var selectedArcana = {
     
     /**
      * Filter Available arcana for given position
+     * @name availableArcana
      */
     var availableArcana = arcana[position].filter(function(card) {
       return (
@@ -222,6 +227,7 @@ var selectedArcana = {
     // Object containing fortunes for each arcana in past, present, and future
 /**
  * Object containing fortunes of each arcana in past, present, and future
+ * @name fortunes
  * @type {Object<Array>} - Fortune Descriptions
  */
     var fortunes = {
@@ -300,6 +306,7 @@ var selectedArcana = {
     };
   /**
    * The Current Fortune
+   * @name fortune
    * @type {string}
    */
     var fortune = fortunes[position][selectedCard];
