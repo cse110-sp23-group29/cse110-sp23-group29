@@ -1,3 +1,7 @@
+/**
+ * Handle the Video Player Click
+ * @name handleVideoClick
+ */
 function handleVideoClick() {
   let video = document.getElementById("video-player");
   let transitionVideo = document.getElementById("fade-in-video");

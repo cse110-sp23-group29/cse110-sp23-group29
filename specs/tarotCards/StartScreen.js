@@ -1,4 +1,6 @@
-
+/**
+ * @type {AudioSettings}
+ */
 const audioSettings = new AudioSettings('bg-music', 'music-button', 'volume-slider', 'volume-icon');
 
 window.addEventListener("load", function() {
@@ -15,7 +17,9 @@ window.addEventListener("load", function() {
         audioSettings.toggleVolumeIcon();
     });
     
-    // if audio should be paused, pause and change volume icon
+    /**
+     * If audio should be paused, pause the audio and change the volume icon
+     */
     if (localStorage.getItem("paused")) {
         audioSettings.audio.pause();
         audioSettings.volumeIcon.src = "./specs/images/volume-off.png";
