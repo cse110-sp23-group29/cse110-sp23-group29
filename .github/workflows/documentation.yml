@@ -18,4 +18,4 @@ jobs:
         
         - name: Run Process
           run: |
-              npm run jsdoc -c jsdoc.json  
+              npm run jsdoc
