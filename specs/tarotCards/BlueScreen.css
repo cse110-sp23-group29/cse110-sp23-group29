@@ -155,8 +155,9 @@ body {
   }
   
   /* Styling for the heading within the card */
-  .card h3 {
+  .card1 h3 {
     font-size: 16px;
+    text-align: center;
   }
   
   /* Styling for the fortune paragraph within the card */
