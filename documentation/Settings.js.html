@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Settings.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Settings.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>class AudioSettings {
+    /**
+     * Audio Settings Constructor
+     * @param audioID - ID for audio
+     * @param musicCheckBoxID - Music Toggle ID
+     * @param volumeSliderID  - Volume Slider ID
+     * @param volumeIconID - Volume Toggle Icon ID
+     */
+    constructor(audioID, musicCheckBoxID, volumeSliderID, volumeIconID) {
+        this.audio = document.getElementById(audioID);
+        this.musicCheckBox = document.getElementById(musicCheckBoxID);
+        this.volumeSlider = document.getElementById(volumeSliderID);
+        this.volumeIcon = document.getElementById(volumeIconID);
+
+        this.audio.volume = this.volumeSlider.value / 100;
+    //     if (!localStorage.getItem("paused"));
+    //         this.audio.play();
+    }
+    /**
+     * Volume Adjustor
+     * @name adjustVolume
+     * @param {number} volume 
+     */
+    adjustVolume(volume) {
+        this.audio.volume = volume;
+
+        if (volume == 0)
+            this.volumeIcon.src = "./specs/images/volume-off.png";
+        else
+            this.volumeIcon.src = "./specs/images/volume-on.png";
+            this.toggleMusic();
+
+        localStorage.setItem("volume", volume);
+    }
+    /**
+     * Music Toggle, On or Off
+     * @name toggleMusic
+     */
+    toggleMusic() {
+        if(this.musicCheckBox.checked){
+            this.audio.play();
+            this.volumeIcon.src = "./specs/images/volume-on.png";
+        } else {
+            this.audio.pause();
+            this.volumeIcon.src = "./specs/images/volume-off.png";
+        }
+        localStorage.setItem("paused", this.audio.paused);
+    }
+    /**
+     * Music Toggle Icon Control
+     * @name toggleVolumeIcon
+     */
+    toggleVolumeIcon() {
+        if (!this.audio.paused) {
+            this.audio.pause();
+            this.volumeIcon.src = "./specs/images/volume-off.png";
+        } else {
+            this.audio.play();
+            this.volumeIcon.src = "./specs/images/volume-on.png";
+        }
+        this.musicCheckBox.click();  
+        localStorage.setItem("paused", this.audio.paused);
+    }
+}
+
+/**
+ * Dark Mode Toggle
+ * @name toggleDarkMode
+ */
+function toggleDarkMode() {
+    // Retrieve the current dark mode state from Local Storage
+    let isDarkMode = localStorage.getItem("darkMode");
+
+    // Toggle the dark mode state
+    isDarkMode = !isDarkMode;
+
+    // Update the dark mode state in Local Storage
+    localStorage.setItem("darkMode", isDarkMode);
+
+    // Apply the appropriate theme
+    applyTheme(isDarkMode);
+}
+/**
+ * Function to Trigger Dark Mode Theme Shift
+ * @name applyTheme
+ * @param {boolean} isDarkMode 
+ */
+function applyTheme(isDarkMode) {
+  let body = document.body;
+
+  // Add or remove the appropriate CSS class based on the dark mode state
+  if (isDarkMode) {
+    body.classList.add("dark-class");
+  } else {
+    body.classList.remove("dark-class");
+  }
+}
+/**
+ * Retrieve DarkMode Toggle State and determine theme
+ * @name handleStartClick
+ */
+function handleStartClick() {
+  // Retrieve the dark mode state from Local Storage
+  let isDarkMode = localStorage.getItem("darkMode");
+
+  // if the dark mode setting was not toggled before,
+  // there wont be anything in local storage
+  if (isDarkMode == null)
+    isDarkMode = false;
+
+  // Redirect to the new page with the dark mode state as a query parameter
+  let url = "../BlueScreen.html?darkMode=" + isDarkMode;
+  window.location.href = url;
+}
+/**
+ * Set Local Storage based on Dark Mode Checkbox toggle
+ * @name handleCheckboxChange
+ */
+function handleCheckboxChange(checkbox) {
+  // Retrieve the checkbox state
+  let isDarkMode = checkbox.checked;
+
+  // Update the dark mode state in Local Storage
+  localStorage.setItem("darkMode", isDarkMode);
+
+  // Apply the appropriate theme
+  applyTheme(isDarkMode);
+}
+
+// Get the checkbox element
+let darkModeCheckbox = document.getElementById("dark-mode-checkbox");
+// Initialize the checkbox state based on the stored dark mode state
+/**
+ * @type {boolean} 
+ */
+let isDarkMode = localStorage.getItem("darkMode");
+darkModeCheckbox.checked = isDarkMode === "true";
+
+/**
+ * Open Popup function
+ * @name openPopup
+ */
+function openPopup() {
+    document.getElementById("popup").style.display = "flex";
+}
+
+/**
+ * Close Popup function
+ * @name closePopup
+ */
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AudioSettings.html">AudioSettings</a></li></ul><h3>Global</h3><ul><li><a href="global.html#adjustVolume">adjustVolume</a></li><li><a href="global.html#applyTheme">applyTheme</a></li><li><a href="global.html#arcana">arcana</a></li><li><a href="global.html#availableArcana">availableArcana</a></li><li><a href="global.html#closePopup">closePopup</a></li><li><a href="global.html#displayFortune">displayFortune</a></li><li><a href="global.html#flipCard">flipCard</a></li><li><a href="global.html#fortune">fortune</a></li><li><a href="global.html#fortunes">fortunes</a></li><li><a href="global.html#handleCheckboxChange">handleCheckboxChange</a></li><li><a href="global.html#handleStartClick">handleStartClick</a></li><li><a href="global.html#isDarkMode">isDarkMode</a></li><li><a href="global.html#openPopup">openPopup</a></li><li><a href="global.html#selectedArcana">selectedArcana</a></li><li><a href="global.html#toggleDarkMode">toggleDarkMode</a></li><li><a href="global.html#toggleMusic">toggleMusic</a></li><li><a href="global.html#toggleVolumeIcon">toggleVolumeIcon</a></li><li><a href="global.html#validateForm">validateForm</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sun Jun 11 2023 08:46:17 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
