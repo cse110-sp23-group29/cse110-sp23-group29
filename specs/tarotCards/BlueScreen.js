@@ -28,13 +28,19 @@ document.addEventListener('load', () => {
 });
 
 // Declaring the selectedArcana object
+/**
+ * Declaring selectedArcana Object
+ * @type {Object<Array>}
+ */
 var selectedArcana = {
     past: [],
     present: [],
     future: []
   };
   
-  // Function to validate the form
+/**
+*Function to validate the form
+*/
   function validateForm() {
     // Getting form input values
     var name = document.getElementById("name").value;
@@ -73,14 +79,17 @@ var selectedArcana = {
     }
   }
   
-  // Function to display fortune based on position and card
+/**
+*Function to display fortune based on position and card
+*@param {number} position - Card Position
+*@param {cardObject} card - Card Type
+*/
   function displayFortune(position, card) {
     // Object containing the paths to card images
     var images = {
       "The Fool": "../specs/images/image3.png",
       "The Magician": "../specs/images/image1.png",
       "The High Priestess": "../specs/images/image2.png",
-      // ... Include images for other cards
       "The Empress": "../specs/images/image23.png",
       "The Emperor": "../specs/images/image4.png",
       "The Hierophant": "../specs/images/image8.png",
@@ -101,8 +110,11 @@ var selectedArcana = {
       "Judgment": "../specs/images/image19.png",
       "The World": "../specs/images/image20.png",
     };
-  
-    // Object containing the available arcana for each position
+
+/**
+ * Object containing available arcana at each position
+ * @type {Object<Array>} Card Type Dictionary
+ */
     var arcana = {
       past: [
         "The Fool",
@@ -178,7 +190,10 @@ var selectedArcana = {
       ]
     };
   
-    // Filtering the available arcana for the given position
+    
+    /**
+     * Filter Available arcana for given position
+     */
     var availableArcana = arcana[position].filter(function(card) {
       return (
         !selectedArcana.past.includes(card) &&
@@ -205,6 +220,10 @@ var selectedArcana = {
     selectedArcana[position].push(selectedCard);
   
     // Object containing fortunes for each arcana in past, present, and future
+/**
+ * Object containing fortunes of each arcana in past, present, and future
+ * @type {Object<Array>} - Fortune Descriptions
+ */
     var fortunes = {
       past: {
         "The Fool": "You have experienced a significant turning point in the past that shaped your current path.",
@@ -279,7 +298,10 @@ var selectedArcana = {
         "The World": "You will experience a sense of completion and fulfillment. Celebrate your achievements and recognize the interconnectedness of your journey with the world around you.",
       }
     };
-  
+  /**
+   * The Current Fortune
+   * @type {string}
+   */
     var fortune = fortunes[position][selectedCard];
   
     // Displaying the fortune based on the selected position and card
@@ -302,6 +324,10 @@ var selectedArcana = {
   }
   
   // Function to flip the card
+  /**
+   * Function to flip the card over
+   * @param {cardObject} card - Current card
+   */
   function flipCard(card) {
     card.classList.toggle("flip");
   }
