@@ -15,4 +15,4 @@ jobs:
             source_dir: ./specs/tarotCards
             recurse: true
             output_dir: ./documentation
-            npm: run jsdoc
+            config_file: conf.json
