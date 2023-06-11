@@ -1,6 +1,17 @@
 
 const audioSettings = new AudioSettings('bg-music', 'music-button', 'volume-slider', 'volume-icon');
+window.onbeforeunload = function() {
+    localStorage.setItem('musicPlayerTime', document.getElementById('bg-music').currentTime);
+};
 
+  // Retrieve the stored playback time and set it back when the page loads
+window.onload = function() {
+    var storedTime = localStorage.getItem('musicPlayerTime');
+    if (storedTime) {
+      document.getElementById('bg-music').currentTime = storedTime;
+      audioSettings.toggleVolumeIcon();
+    }
+};
 window.addEventListener("load", function() {
 
     audioSettings.volumeSlider.addEventListener("input", (e) => {
