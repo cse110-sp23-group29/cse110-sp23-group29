@@ -21,6 +21,9 @@
 
 <body>
     <!-- Form container -->
+    <audio autoplay loop id="bg-music">
+		<source src="./specs/audio/testMusic.mp3" type="audio/mp3">
+	</audio>
     <div class="form-container">
         <h1>Enter these details for your fortune to be told</h1>
         <input type="text" id="name" placeholder="Name">
@@ -101,7 +104,7 @@
             <h3 class="settings-title">Settings</h3>
             <ul class="settings-list">
                 <li>Music
-                    <input class="checkmark" id="music-button" type="checkbox" title="Music" placeholder="Music?" onclick="playMusic(this)" checked>
+                    <input class="checkmark" id="music-button" type="checkbox" title="Music" placeholder="Music?" checked>
                     <input id="volume-slider" type="range" title="Volume" placeholder="Volume" min="0" max="100" value="30" onchange="this.value=value">
                 </li>
                 <li>Dark Mode
@@ -122,5 +125,6 @@
     <!-- Link to external JavaScript files -->
     <script src="../specs/tarotCards/Settings.js"></script>
     <script src="../specs/tarotCards/BlueScreen.js"></script>
+    <script src="../specs/tarotCards/StartScreen.js"></script>
 </body>
 </html>

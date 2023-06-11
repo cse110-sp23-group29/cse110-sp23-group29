@@ -1,17 +1,37 @@
 name: Javascript Documentation
 
-on: 
-  push:
-    branches:
-      - main
+on: push
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: JSDoc Action
-        uses: andstor/jsdoc-action@v1
+    deploy:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v3
+
+        - name: Build
+          uses: andstor/jsdoc-action@v1
           with:
             source_dir: ./specs/tarotCards
-            recurse: false
+            recurse: true
             output_dir: ./documentation
+        
+        - name: Run Process
+          run: |
+              rm -rf ./documentation
+              npm install jsdocs
+              npm run generate-docs
+
+        - name: Add and commit doc changes to main
+          run: |
+            git config --local user.email 'action@github.com'
+            git config --local user.name 'GitHub Action'
+            git add -A
+            git commit -m 'Updates JSDoc documentation files'
+
+        - name: Push changes
+          uses: ad-m/github-push-action@master
+          with:
+            repo-token: ${{secrets.GITHUB_TOKEN}}
+            force: true
+            branch: main
