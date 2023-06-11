@@ -1,4 +1,11 @@
 class AudioSettings {
+    /**
+     * Audio Settings Constructor
+     * @param audioID - ID for audio
+     * @param musicCheckBoxID - Music Toggle ID
+     * @param volumeSliderID  - Volume Slider ID
+     * @param volumeIconID - Volume Toggle Icon ID
+     */
     constructor(audioID, musicCheckBoxID, volumeSliderID, volumeIconID) {
         this.audio = document.getElementById(audioID);
         this.musicCheckBox = document.getElementById(musicCheckBoxID);
@@ -9,7 +16,11 @@ class AudioSettings {
     //     if (!localStorage.getItem("paused"));
     //         this.audio.play();
     }
-
+    /**
+     * Volume Adjustor
+     * @name adjustVolume
+     * @param {number} volume 
+     */
     adjustVolume(volume) {
         this.audio.volume = volume;
 
@@ -21,7 +32,10 @@ class AudioSettings {
 
         localStorage.setItem("volume", volume);
     }
-
+    /**
+     * Music Toggle, On or Off
+     * @name toggleMusic
+     */
     toggleMusic() {
         if(this.musicCheckBox.checked){
             this.audio.play();
@@ -32,7 +46,10 @@ class AudioSettings {
         }
         localStorage.setItem("paused", this.audio.paused);
     }
-
+    /**
+     * Music Toggle Icon Control
+     * @name toggleVolumeIcon
+     */
     toggleVolumeIcon() {
         if (!this.audio.paused) {
             this.audio.pause();
@@ -46,6 +63,10 @@ class AudioSettings {
     }
 }
 
+/**
+ * Dark Mode Toggle
+ * @name toggleDarkMode
+ */
 function toggleDarkMode() {
     // Retrieve the current dark mode state from Local Storage
     let isDarkMode = localStorage.getItem("darkMode");
@@ -59,7 +80,11 @@ function toggleDarkMode() {
     // Apply the appropriate theme
     applyTheme(isDarkMode);
 }
-
+/**
+ * Function to Trigger Dark Mode Theme Shift
+ * @name applyTheme
+ * @param {boolean} isDarkMode 
+ */
 function applyTheme(isDarkMode) {
   let body = document.body;
 
@@ -70,7 +95,10 @@ function applyTheme(isDarkMode) {
     body.classList.remove("dark-class");
   }
 }
-
+/**
+ * Retrieve DarkMode Toggle State and determine theme
+ * @name handleStartClick
+ */
 function handleStartClick() {
   // Retrieve the dark mode state from Local Storage
   let isDarkMode = localStorage.getItem("darkMode");
@@ -84,7 +112,10 @@ function handleStartClick() {
   let url = "../BlueScreen.html?darkMode=" + isDarkMode;
   window.location.href = url;
 }
-
+/**
+ * Set Local Storage based on Dark Mode Checkbox toggle
+ * @name handleCheckboxChange
+ */
 function handleCheckboxChange(checkbox) {
   // Retrieve the checkbox state
   let isDarkMode = checkbox.checked;
@@ -99,13 +130,24 @@ function handleCheckboxChange(checkbox) {
 // Get the checkbox element
 let darkModeCheckbox = document.getElementById("dark-mode-checkbox");
 // Initialize the checkbox state based on the stored dark mode state
+/**
+ * @type {boolean} 
+ */
 let isDarkMode = localStorage.getItem("darkMode");
 darkModeCheckbox.checked = isDarkMode === "true";
 
+/**
+ * Open Popup function
+ * @name openPopup
+ */
 function openPopup() {
     document.getElementById("popup").style.display = "flex";
 }
 
+/**
+ * Close Popup function
+ * @name closePopup
+ */
 function closePopup() {
     document.getElementById("popup").style.display = "none";
 }
