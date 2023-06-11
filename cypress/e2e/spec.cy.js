@@ -24,72 +24,81 @@ describe('index.html', () => {
   })
 })
 
-describe('StartScreen.html', () => {
-  //Visit Start Screen
-  it('Visit', () => {
-    cy.visit('https://cse110-sp23-group29.github.io/StartScreen.html')
-    cy.get('#start').should('exist')
-    cy.get('#volume-icon').should('exist')
-    cy.get('img.settings-icon').should('exist')
+for(let i = 0; i < 5; i++){
+  describe('StartScreen.html', () => {
+    //Visit Start Screen
+    it('Visit', () => {
+      cy.visit('https://cse110-sp23-group29.github.io/StartScreen.html')
+      cy.get('#start').should('exist')
+      cy.get('#volume-icon').should('exist')
+      cy.get('img.settings-icon').should('exist')
+    })
+  
+    //Test Settings functions
+    testSettings('https://cse110-sp23-group29.github.io/StartScreen.html')
+  
+    //Test Dark Mode
+    testDarkMode('https://cse110-sp23-group29.github.io/StartScreen.html')
   })
-
-  //Test Settings functions
-  testSettings('https://cse110-sp23-group29.github.io/StartScreen.html')
-
-  //Test Dark Mode
-  testDarkMode('https://cse110-sp23-group29.github.io/StartScreen.html')
-})
-
-describe('BlueScreen.html', () => {
-  //Visit Blue Screen
-  it('Visit', () => {
-    cy.visit('https://cse110-sp23-group29.github.io/BlueScreen.html')
-    cy.get('#volume-icon').should('exist')
-    cy.get('img.settings-icon').should('exist')
+  
+  describe('BlueScreen.html', () => {
+    //Visit Blue Screen
+    it('Visit', () => {
+      cy.visit('https://cse110-sp23-group29.github.io/BlueScreen.html')
+      cy.get('#volume-icon').should('exist')
+      cy.get('img.settings-icon').should('exist')
+    })
+  
+    //Test Settings functions
+    testSettings('https://cse110-sp23-group29.github.io/BlueScreen.html')
+  
+    //Test Dark Mode
+    testDarkMode('https://cse110-sp23-group29.github.io/BlueScreen.html')
   })
+  
+  describe('User Form / Card Flipping ' + (i + 1), () => {
+    //Visit
+    it('Visit', () => {
+      cy.visit('https://cse110-sp23-group29.github.io/BlueScreen.html?darkMode=true')
+      cy.get('#volume-icon').should('exist')
+      cy.get('img.settings-icon').should('exist')
+      cy.get('#name').should('exist')
+      cy.get('#city').should('exist')
+      cy.get('#date').should('exist')
+    })
+  
+    //Input Name, City of Birth, Birthday
+    it('Fill-out Form / Flip Cards', () => {
+      cy.visit('https://cse110-sp23-group29.github.io/BlueScreen.html')
+  
+      cy.get('#name')
+        .type('TEST NAME')
+      cy.get('#city')
+        .type('TEST CITY')
+      cy.get('#date')
+        .type('2000-01-01')
+      cy.get('button[onclick = "validateForm()"]')
+        .click()
+      cy.get('div.card')
+        .should('exist')
+  
+      //FLIP CARDS
+      cy.get('div.top-left')
+        .click()
+      cy.get('div.top-middle')
+        .click()
+      cy.get('div.top-right')
+        .click()
 
-  //Test Settings functions
-  testSettings('https://cse110-sp23-group29.github.io/BlueScreen.html')
-
-  //Test Dark Mode
-  testDarkMode('https://cse110-sp23-group29.github.io/BlueScreen.html')
-})
-
-describe('User Form / Card Flipping', () => {
-  //Visit
-  it('Visit', () => {
-    cy.visit('https://cse110-sp23-group29.github.io/BlueScreen.html?darkMode=true')
-    cy.get('#volume-icon').should('exist')
-    cy.get('img.settings-icon').should('exist')
-    cy.get('#name').should('exist')
-    cy.get('#city').should('exist')
-    cy.get('#date').should('exist')
+      //RESET BUTTON
+      cy.get('#askAnotherFortuneBtn')
+        .click()
+      cy.get('#start').should('exist')
+    })
   })
+}
 
-  //Input Name, City of Birth, Birthday
-  it('Fill-out Form / Flip Cards', () => {
-    cy.visit('https://cse110-sp23-group29.github.io/BlueScreen.html')
 
-    cy.get('#name')
-      .type('TEST NAME')
-    cy.get('#city')
-      .type('TEST CITY')
-    cy.get('#date')
-      .type('2000-01-01')
-    cy.get('button[onclick = "validateForm()"]')
-      .click()
-    cy.get('div.card')
-      .should('exist')
-
-    //FLIP FIRST CARD
-    cy.get('div.top-left')
-      .click()
-    cy.get('div.top-middle')
-      .click()
-    cy.get('div.top-right')
-      .click()
-  })
-})
 
 function testSettings(url){
   it('Settings', () => {
@@ -181,22 +190,3 @@ function testDarkMode(url){
     })
   })
 }
-
-    
-    /*
-    //Click each card
-    cy.get('.card')
-      .should('have.length', 3)
-      .each(($card, index, $list) => {
-        cy.wrap($card).click()
-
-        cy.get('#modal' + (index + 1))
-          .invoke('attr', 'style')
-          .should('not.contain', 'none')
-
-        cy.get('.close')
-          .then(($close) => {
-            $close[index].click()
-          })
-      })
-    */
