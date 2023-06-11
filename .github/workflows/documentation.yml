@@ -2,6 +2,11 @@ name: Javascript Documentation
 
 on: push
 
+permissions:
+  contents: write
+  pull-requests: write
+
+
 jobs:
     deploy:
       runs-on: ubuntu-latest
@@ -15,3 +20,22 @@ jobs:
             source_dir: ./specs/tarotCards
             recurse: true
             output_dir: ./documentation
+        
+        - name: Run JSDoc Process
+          run: |
+              npm install jsdocs
+              npm run generate-docs
+
+        - name: Add and commit doc changes to main
+          run: |
+            git config --local user.email 'action@github.com'
+            git config --local user.name 'GitHub Action'
+            git add -A
+            git commit -m 'Updates JSDoc documentation files'
+
+        - name: Push changes
+          uses: ad-m/github-push-action@master
+          with:
+            github_token: ${{github.token}}
+            force: true
+            branch: main
