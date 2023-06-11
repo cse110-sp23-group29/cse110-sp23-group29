@@ -68,10 +68,13 @@ class AudioSettings {
  * @name toggleDarkMode
  */
 function toggleDarkMode() {
-    // Retrieve the current dark mode state from Local Storage
+    /**
+     * Retrieve Dark Mode State from Local storage
+     * @type {boolean}
+     */
     let isDarkMode = localStorage.getItem("darkMode");
 
-    // Toggle the dark mode state
+
     isDarkMode = !isDarkMode;
 
     // Update the dark mode state in Local Storage
@@ -100,7 +103,10 @@ function applyTheme(isDarkMode) {
  * @name handleStartClick
  */
 function handleStartClick() {
-  // Retrieve the dark mode state from Local Storage
+/**
+ * Retrieve Dark Mode State from Local storage
+ * @type {boolean}
+ */
   let isDarkMode = localStorage.getItem("darkMode");
 
   // if the dark mode setting was not toggled before,
@@ -108,7 +114,10 @@ function handleStartClick() {
   if (isDarkMode == null)
     isDarkMode = false;
 
-  // Redirect to the new page with the dark mode state as a query parameter
+  /**
+   * Redirect to the new page with the dark mode state as the query parameter
+   * @type {string}
+   */
   let url = "../BlueScreen.html?darkMode=" + isDarkMode;
   window.location.href = url;
 }
@@ -117,7 +126,10 @@ function handleStartClick() {
  * @name handleCheckboxChange
  */
 function handleCheckboxChange(checkbox) {
-  // Retrieve the checkbox state
+  /**
+ * Retrieve Checkbox State
+ * @type {boolean}
+ */
   let isDarkMode = checkbox.checked;
 
   // Update the dark mode state in Local Storage
