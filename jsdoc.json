@@ -3,7 +3,7 @@
   "plugins": ["plugins/markdown"],
   "recurseDepth": 10,
   "source": {
-    "include": ["src"],
+    "include": ["./specs/tarotCards"],
     "includePattern": ".js$",
     "excludePattern": "(node_modules/|docs)"
   },
