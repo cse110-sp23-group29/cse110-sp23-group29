@@ -23,3 +23,7 @@ function exampleFunctionSecond(test){
 function exampleFunctionThird(param1,param2){
 
 }
+/***
+ * Example String
+ */
+const val = "Example String"
