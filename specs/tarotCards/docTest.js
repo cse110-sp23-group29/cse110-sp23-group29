@@ -23,10 +23,12 @@ function exampleFunctionSecond(test){
 function exampleFunctionThird(param1,param2){
 
 }
+
 /***
  * Example String
  */
 const val = "Example String"
+
 /**
 * Final Example Test
 * @param {string} param1 test Paramater
