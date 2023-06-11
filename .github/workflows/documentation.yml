@@ -19,6 +19,7 @@ jobs:
         - name: Run Process
           run: |
               rm -rf ./documentation
+              npm install jsdocs
               npm run generate-docs
 
         - name: Add and commit doc changes to main
