@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: tarotCardsLandingPage.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,49 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: tarotCardsLandingPage.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Handle the Video Player Click
+ * @name handleVideoClick
+ */
+function handleVideoClick() {
+  let video = document.getElementById("video-player");
+  let transitionVideo = document.getElementById("fade-in-video");
+  let computer = document.getElementsByClassName("image-container")[0];
 
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
+  // zoom in on computer if window is bigger than 900px.
+  // if window is any smaller, the zoom in wont scale right.. will fix later
+  if (window.innerWidth > 900) {
+    let rangeX = computer.offsetWidth;
+    let vw = 0;
+    vw = rangeX / Math.min(window.innerWidth, window.innerHeight);
+    document.documentElement.style.setProperty('--vw-scale', `${vw}`);
     
+    computer.style.transition = "all 600ms ease-in";
+    computer.style.transform = "translateY(11%) scale(var(--vw-scale))";
+  }
+  
+  video.play();
+  transitionVideo.play();
 
+  setTimeout(function(){
+    transitionVideo.classList.add("fadeInAndOut");
+  }, 1500);
 
-
-
-
+  video.addEventListener('ended', function() {
+      window.location.href = '../StartScreen.html'
+  });
+}</code></pre>
+        </article>
+    </section>
 
 
 
