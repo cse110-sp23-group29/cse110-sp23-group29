@@ -18,4 +18,5 @@ jobs:
         
         - name: Run Process
           run: |
+              npm install jsdoc
               npm run jsdoc
