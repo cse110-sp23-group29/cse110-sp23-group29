@@ -15,8 +15,3 @@ jobs:
             source_dir: ./specs/tarotCards
             recurse: true
             output_dir: ./documentation
-        
-        - name: Deploy
-          uses: peaceiris/actions-gh-pages@v3
-          with:
-            publish_dir: ./documentation
