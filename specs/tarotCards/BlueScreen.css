@@ -216,4 +216,41 @@ body {
     transform: rotate(-180deg); /* Makes the arrow face left */
     font-size: 40px; /* Increases the size of the arrow */
   }
+
+/*  .buttonContainer button {
+    position: absolute;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #D0547A;
+    color: white;
+    top: 109x;
+    right: 100px
+   
+  }
+  */
+  .buttonContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .buttonContainer button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #d38e8e;
+    color: white;
+  }
+  
+
+  
+  
+  
+  
+  
+  
+
   

@@ -299,11 +299,31 @@ var selectedArcana = {
       document.querySelector(".top-right").style.pointerEvents = "none";
       document.querySelector(".bottom-right").style.pointerEvents = "none";
     }
+    // sdocument.getElementById("askAnotherFortuneBtn").style.display = "block";
+
   }
-  
+  var flippedCardCount = 0;
+
   // Function to flip the card
   function flipCard(card) {
     card.classList.toggle("flip");
+
+    // Increment the flippedCardCount
+    flippedCardCount++;
+
+    // Check if the third card has been flipped
+    if (flippedCardCount === 3) {
+      document.getElementById("askAnotherFortuneBtn").style.display = "block";
+    }
   }
   
-  
+  // Function to go back to the start screen page
+  function goToStartScreen() {
+  window.location.href = "StartScreen.html"; 
+}
+
+  // Add event listener to the "Ask Another Fortune" button
+  document.getElementById("askAnotherFortuneBtn").addEventListener("click", goToStartScreen);
+
+  // Hide the "Ask Another Fortune" button initially
+  document.getElementById("askAnotherFortuneBtn").style.display = "none";
