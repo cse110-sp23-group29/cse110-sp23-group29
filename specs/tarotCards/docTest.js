@@ -27,3 +27,13 @@ function exampleFunctionThird(param1,param2){
  * Example String
  */
 const val = "Example String"
+/**
+* Final Example Test
+* @param {string} param1 test Paramater
+* @param {string} param2 test Paramater
+* @param {number} param3 test Paramater
+* @returns {string}None
+*/
+function exampleFinal(param1,param2,param3){
+
+}
