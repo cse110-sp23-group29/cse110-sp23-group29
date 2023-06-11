@@ -1,6 +1,7 @@
 class AudioSettings {
     /**
      * Audio Settings Constructor
+     * @file Settings
      * @param audioID - ID for audio
      * @param musicCheckBoxID - Music Toggle ID
      * @param volumeSliderID  - Volume Slider ID
@@ -18,6 +19,7 @@ class AudioSettings {
     }
     /**
      * Volume Adjustor
+     *  @file Settings
      * @name adjustVolume
      * @param {number} volume 
      */
