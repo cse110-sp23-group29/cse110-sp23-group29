@@ -217,18 +217,7 @@ body {
     font-size: 40px; /* Increases the size of the arrow */
   }
 
-/*  .buttonContainer button {
-    position: absolute;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-family: 'Press Start 2P', cursive;
-    background-color: #D0547A;
-    color: white;
-    top: 109x;
-    right: 100px
-   
-  }
-  */
+  /* Styling for the button container */
   .buttonContainer {
     position: absolute;
     top: 50%;
@@ -237,6 +226,7 @@ body {
     text-align: center;
   }
   
+  /* Styling for the text within the button container */
   .buttonContainer button {
     padding: 10px 20px;
     border-radius: 10px;
