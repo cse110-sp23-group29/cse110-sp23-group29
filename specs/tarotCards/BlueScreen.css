@@ -76,8 +76,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 150px;
-    height: 225px;
+    width: 200px;
+    height: 275px;
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
@@ -156,21 +156,21 @@ body {
   
   /* Styling for the heading within the card */
   .card1 h3 {
-    font-size: 16px;
+    font-size: 18px;
     text-align: center;
   }
   
   /* Styling for the fortune paragraph within the card */
-  .card p.fortune {
-    font-weight: bold;
-    font-size: 14px;
+  .fortune {
+    font-size: 12px;
+    text-align: center;
   }
   
   /* Styling for the bottom-left card container */
   .bottom-left {
     position: fixed;
     bottom: 10px;
-    left: 30%;
+    left: 20%;
   }
   
   /* Styling for the bottom-middle card container */
@@ -185,7 +185,7 @@ body {
   .bottom-right {
     position: fixed;
     bottom: 10px;
-    right: 30%;
+    right: 20%;
   }
   
   /* Keyframe animation for fading in */
