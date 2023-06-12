@@ -209,7 +209,7 @@ body {
     width: 50px;
     height: 50px;
     background-color: transparent;
-    color: #f04c90;
+    color: #D0547A;
     text-align: center;
     cursor: pointer;
     z-index: 9999;
@@ -232,7 +232,7 @@ body {
     padding: 10px 20px;
     border-radius: 10px;
     font-family: 'Press Start 2P', cursive;
-    background-color: #d38e8e;
+    background-color: #D0547A;
     color: white;
   }
   
