@@ -12,22 +12,26 @@
 	<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
+
+	<!-- resource of backgroud music -->
 	<audio autoplay loop id="bg-music">
 		<source src="./specs/audio/bgMusic.mp3" type="audio/mp3">
 	</audio>
 	
 	<section class="main-content">
 		<h1 class="title">
+			<!-- Heading line -->
 			<span class="below">Java</span>Script Je<span class="below">sters!</span></h1>
-			
+			<!-- Start Button -->
 			<section class="buttons-container">
 				<button class="button" id="start" type="button" onclick="handleStartClick()">Start!</button>
 			</section>
+		<!-- feature of setting and volume -->
 		<img src="./specs/images/setting.png" alt="Settings" class="settings-icon" onclick="openPopup()" />
-		<img src="./specs/images/volume-on.png" alt="Volume" class="volume-icon" id="volume-icon" />
-			
-	</section>
 
+		<img src="./specs/images/volume-on.png" alt="Volume" class="volume-icon" id="volume-icon" /> 
+	</section>
+	<!-- feature that in the Setting section -->
 	<div id="popup" class="popup-container">
 		<div class="popup-content">
 			<h3 class="settings-title">Settings</h3>
@@ -40,10 +44,11 @@
 					<input class="checkmark" id="dark-mode-checkbox" type="checkbox" title="Dark Mode" placeholder="Dark Mode?" onchange= "handleCheckboxChange(this)">
 				</li>
 			</ul>
+			<!-- close button for setting page -->
 			<button class="closePopup" onclick="closePopup()" type="button">&times;</button>
 		</div>
 	</div>
-	
+	<!-- jester image on the start page -->
 	<div class="jesters-container">
 		<div class="image-container1">
 			<img id="jester0" src="./specs/images/jester_0.png" alt="Image 1">
