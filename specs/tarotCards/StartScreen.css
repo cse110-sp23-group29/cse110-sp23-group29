@@ -1,37 +1,35 @@
 
 
 
-
+/* whole page postion */
 * {
     padding: 0;
     margin: 0;
 }
-
+/* background color and font */
 body {
     background-color: #b3e6ff;
     font-family: 'Press Start 2P', cursive;
 }
-
+/* style for dark mode */
 .dark-class {
     background-color: #1a1a1a; /* Dark mode background color */
 }
-
+/* adjust volume slider style */
 #volume-slider {
     height: 30px;
     vertical-align: middle;
 }
-
+/* style for main class */
 .main-content {
     display: flex;
     flex-direction: column;
-
     margin: 0 10%;
-
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
-
+/* Heading style */
 .title {
     font-size: 60px;
     font-weight: bold;
@@ -42,11 +40,12 @@ body {
     /* Adds a text shadow effect to the page title */
     text-shadow: 2px 2px 0px #D0547A, 4px 4px 0px #C0425F;
 }
-
+/* Java Scipt Jester Style */
 .below {
     position: relative;
     z-index: -2;
 }
+/* button style for start button */
 .button {
     padding: 2.3rem;
     margin-bottom: 2rem;
@@ -59,68 +58,49 @@ body {
     border-radius: 10px;
     border: 0px;
     box-shadow: 4px 4px 0px #D0547A, 8px 8px 0px #C0425F;
-}
-.button1 {
-    padding: 1rem;
-    margin-bottom: 2rem;
-    background-color: #EC7C95;
-    cursor: pointer;
-    font-size: 1.2rem;
-    font-family: 'Press Start 2P', cursive;
-    color: white;
-    display: block;
-    border-radius: 10px;
-    border: 0px;
-    box-shadow: 4px 4px 0px #D0547A, 8px 8px 0px #C0425F;
-    position: absolute;
-    top: 25px; /* Adjust the top position as needed */
-    right: 40px; /* Adjust the left position as needed */
-}
-
-.button:active {
-    box-shadow: none;
-    background-color: #D0547A;
-    transform: translate(4px, 4px);
-}
-
-.buttons-container .button {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     margin-top: 5rem;
 }
-
+/* style when start button is clicked */
+.button:active {
+    box-shadow: none;
+    background-color: #D0547A;
+    transform: translate(4px, 4px);
+}
+/* style for setting text */
 .settings-title {
     margin: 2rem;
     font-size: 2rem;
     color: white;
 }
-
+/* style for content in the setting page */
 .settings-list {
     list-style: none;
     color: white;
     margin-left: 10%;
     margin-right: 10%;
 }
-
+/* postion for text in the setting page */
 .settings-list li {
     margin: 2rem;
     text-align: left;
-}
-
+} 
+/* check box style */
 .settings-list li input[type=checkbox], select {
     vertical-align: middle;
     float: right;
     height: 25px;
     width: 25px;
 }
-
+/* checked box style */
 .settings-list li select {
     width: 7rem;
     font-size: 12px;
     font-family: 'Press Start 2P', cursive;
 }
-
+/* style for popup window */
 .popup {
     display: none;
     position: fixed;
@@ -132,7 +112,7 @@ body {
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
 }
-
+/* style for popup window test */
 .popup-content {
     display: flex;
     flex-direction: column;
@@ -144,12 +124,9 @@ body {
     width: 45%;
     margin: 15% auto;
 }
-
-.popup-content .close {
-    margin-top: 10px;
-}
-  
+/* styel for close the popup window */
 .closePopup {
+    margin-top: 5px;
     position: absolute;
     color: white;
     top: -10px;
@@ -160,14 +137,14 @@ body {
     background-color: transparent;
     border: none;
 }
-
+/* style when put cursor on close button */
 .closePopup:hover,
 .closePopup:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
 }
-
+/* style for popup container, adjust the postion */
 .popup-container {
     display: none;
     position: fixed;
@@ -180,7 +157,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-
+/* style for jesters container, adjust the postion */
 .jesters-container {
     display: inline-block;
     position: fixed;
@@ -191,7 +168,7 @@ body {
     overflow: hidden;
     z-index: -1;
 }
-
+/* style for the images on the start pages and animation */
 .image-container1 {
     position: absolute;
     top: 50%;
@@ -233,8 +210,7 @@ body {
     animation-iteration-count: infinite;
     animation-direction: alternate; 
 }
-
-  
+/* animation for the jesters */
 @keyframes slideshow {
     0% { 
         margin-left: 0%; 
@@ -251,9 +227,8 @@ body {
     100% {
         margin-left: 0%;
     }
-
 }
-
+/* animation for the jesters */
 @keyframes bounce-sway {
     0% {
       bottom: 0;
@@ -280,6 +255,7 @@ body {
       bottom: 0;
     }
 }
+/* animation for the jesters  */
 @keyframes moveImage {
     0% {
       transform: rotate(0deg); 
@@ -291,7 +267,7 @@ body {
       transform: rotate(0deg);
     }
 }
-
+/* extra styles */
 @media screen and (max-width: 780px) {
     .popup-content {
         width: 20rem;
@@ -309,7 +285,7 @@ body {
         text-align: center;
     }
 }
-
+/* extra styles */
 @media screen and (max-device-width: 480px) {
     .main-content {
         margin: 0;
@@ -356,7 +332,7 @@ body {
         height: 200px;
     }
 }
-
+/* style for setting icon */
 .settings-icon {
     position: absolute;
     top: 10px;
@@ -365,6 +341,7 @@ body {
     height: 50px;
     cursor: pointer;
 }
+/* style for volume icon */
 .volume-icon {
     position: absolute;
     top: 10px;
