@@ -328,7 +328,7 @@ var selectedArcana = {
       document.querySelector(".top-right").style.pointerEvents = "none";
       document.querySelector(".bottom-right").style.pointerEvents = "none";
     }
-    // sdocument.getElementById("askAnotherFortuneBtn").style.display = "block";
+    
 
   }
   var flippedCardCount = 0;
