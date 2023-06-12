@@ -17,9 +17,7 @@ window.addEventListener("load", function() {
         audioSettings.toggleVolumeIcon();
     });
     
-    /**
-     * If audio should be paused, pause the audio and change the volume icon
-     */
+    //If audio should be paused, pause the audio and change the volume icon
     if (localStorage.getItem("paused")) {
         audioSettings.audio.pause();
         audioSettings.volumeIcon.src = "./specs/images/volume-off.png";
