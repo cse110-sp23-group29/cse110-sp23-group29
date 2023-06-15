@@ -18,10 +18,12 @@ function handleVideoClick() {
     computer.style.transition = "all 600ms ease-in";
     computer.style.transform = "translateY(11%) scale(var(--vw-scale))";
   }
-  
+  //Play Video Element of Transition
   video.play();
+  //Play Transitional Video Segment
   transitionVideo.play();
 
+  //Transition Timeout Management
   setTimeout(function(){
     transitionVideo.classList.add("fadeInAndOut");
   }, 1500);

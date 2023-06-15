@@ -13,8 +13,7 @@ class AudioSettings {
         this.volumeIcon = document.getElementById(volumeIconID);
 
         this.audio.volume = this.volumeSlider.value / 100;
-    //     if (!localStorage.getItem("paused"));
-    //         this.audio.play();
+    
     }
     /**
      * Adjustor for Volume
