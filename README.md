@@ -6,3 +6,4 @@ Meet the Javascript Jesters in our [Intro Video!](admin/videos/teamintro.mp4)
 
 Public Demo Video: [YouTube](https://youtu.be/6sKPA6J-EOk)
 
+Private Demo Video: [YouTube](https://youtu.be/AkixOWes7f0)
